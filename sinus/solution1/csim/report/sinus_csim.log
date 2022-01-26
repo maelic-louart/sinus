@@ -1,0 +1,27 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../sinus.cpp in debug mode
+   Generating csim.exe
+sinus_1_tmp =0
+sinus_2_tmp =0
+sinus_1_tmp =3
+sinus_2_tmp =3
+sinus_1_tmp =6
+sinus_2_tmp =6
+sinus_1_tmp =9
+sinus_2_tmp =9
+sinus_1_tmp =12
+sinus_2_tmp =12
+sinus_1_tmp =15
+sinus_2_tmp =15
+sinus_1_tmp =18
+sinus_2_tmp =18
+sinus_1_tmp =21
+sinus_2_tmp =21
+sinus_1_tmp =24
+sinus_2_tmp =24
+sinus_1_tmp =28
+sinus_2_tmp =28
+The maximum depth reached by any of the 2 hls::stream() instances in the design is 0
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

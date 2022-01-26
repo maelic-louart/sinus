@@ -1,0 +1,24 @@
+
+
+================================================================
+== Synthesis Summary Report of 'sinus'
+================================================================
++ General Information: 
+    * Date:           Wed Jan 26 17:10:43 2022
+    * Version:        2020.2 (Build 3064766 on Wed Nov 18 09:12:47 MST 2020)
+    * Project:        sinus
+    * Solution:       solution1 (Vivado IP Flow Target)
+    * Product family: virtexuplus
+    * Target device:  xcvu37p-fsvh2892-2L-e
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +---------+------+-------+---------+--------+----------+---------+------+----------+------+----+----------+-----------+-----+
+    | Modules | Issue|       | Latency | Latency| Iteration|         | Trip |          |      |    |          |           |     |
+    | & Loops | Type | Slack | (cycles)|  (ns)  |  Latency | Interval| Count| Pipelined| BRAM | DSP|    FF    |    LUT    | URAM|
+    +---------+------+-------+---------+--------+----------+---------+------+----------+------+----+----------+-----------+-----+
+    |+ sinus  |     -|  -4.40|        1|  10.000|         -|        2|     -|        no|     -|   -|  23 (~0%)|  147 (~0%)|    -|
+    +---------+------+-------+---------+--------+----------+---------+------+----------+------+----+----------+-----------+-----+
+

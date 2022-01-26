@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1643213443332">
+  <ports id="1" name="start_r" type="PortType" originalName="start" coreId="205" bitwidth="1">
+    <dataOutputObjs>read</dataOutputObjs>
+  </ports>
+  <ports id="2" name="step" type="PortType" originalName="step" coreId="0" bitwidth="1">
+    <dataOutputObjs>read</dataOutputObjs>
+  </ports>
+  <ports id="3" name="signal_1_V" type="PortType" originalName="signal_1" coreName="FIFO" coreId="421" bitwidth="32" direction="DirOut" iftype="IfTypeRom">
+    <dataInputObjs>write</dataInputObjs>
+  </ports>
+  <ports id="4" name="signal_2_V" type="PortType" originalName="signal_2" coreName="FIFO" coreId="48" bitwidth="32" direction="DirOut" iftype="IfTypeRom">
+    <dataInputObjs>write</dataInputObjs>
+  </ports>
+  <edges id="70" source_obj="//@ports.1" sink_obj="//@blocks.0/@node_objs.0"/>
+  <edges id="72" source_obj="//@ports.0" sink_obj="//@blocks.0/@node_objs.1"/>
+  <edges id="73" sink_obj="//@blocks.0/@node_objs.2"/>
+  <edges id="74" source_obj="//@blocks.0/@node_objs.2" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="75" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="76" edge_type="CtrlEdge" source_obj="//@blocks.2" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="77" sink_obj="//@blocks.2/@node_objs.0"/>
+  <edges id="78" source_obj="//@blocks.2/@node_objs.0" sink_obj="//@blocks.2/@node_objs.1"/>
+  <edges id="79" edge_type="CtrlEdge" source_obj="//@blocks.6" sink_obj="//@blocks.2/@node_objs.1"/>
+  <edges id="80" edge_type="CtrlEdge" source_obj="//@blocks.3" sink_obj="//@blocks.2/@node_objs.1"/>
+  <edges id="81" source_obj="//@blocks.0/@node_objs.1" sink_obj="//@blocks.1/@node_objs.0"/>
+  <edges id="82" sink_obj="//@blocks.1/@node_objs.0"/>
+  <edges id="85" sink_obj="//@blocks.1/@node_objs.1"/>
+  <edges id="86" source_obj="//@blocks.0/@node_objs.1" sink_obj="//@blocks.1/@node_objs.2"/>
+  <edges id="87" edge_type="CtrlEdge" source_obj="//@blocks.6" sink_obj="//@blocks.1/@node_objs.2"/>
+  <edges id="88" edge_type="CtrlEdge" source_obj="//@blocks.3" sink_obj="//@blocks.1/@node_objs.2"/>
+  <edges id="89" sink_obj="//@blocks.3/@node_objs.0"/>
+  <edges id="90" source_obj="//@blocks.0/@node_objs.0" sink_obj="//@blocks.3/@node_objs.1"/>
+  <edges id="91" edge_type="CtrlEdge" source_obj="//@blocks.5" sink_obj="//@blocks.3/@node_objs.1"/>
+  <edges id="92" edge_type="CtrlEdge" source_obj="//@blocks.4" sink_obj="//@blocks.3/@node_objs.1"/>
+  <edges id="93" source_obj="//@blocks.3/@node_objs.0" sink_obj="//@blocks.4/@node_objs.0"/>
+  <edges id="94" source_obj="//@blocks.3/@node_objs.0" sink_obj="//@blocks.4/@node_objs.1"/>
+  <edges id="95" source_obj="//@blocks.3/@node_objs.0" sink_obj="//@blocks.4/@node_objs.2"/>
+  <edges id="100" source_obj="//@blocks.3/@node_objs.0" sink_obj="//@blocks.4/@node_objs.3"/>
+  <edges id="103" source_obj="//@blocks.4/@node_objs.3" sink_obj="//@blocks.4/@node_objs.4"/>
+  <edges id="105" source_obj="//@blocks.4/@node_objs.1" sink_obj="//@blocks.4/@node_objs.5"/>
+  <edges id="108" source_obj="//@blocks.4/@node_objs.5" sink_obj="//@blocks.4/@node_objs.6"/>
+  <edges id="109" source_obj="//@blocks.3/@node_objs.0" sink_obj="//@blocks.4/@node_objs.7"/>
+  <edges id="112" source_obj="//@blocks.4/@node_objs.7" sink_obj="//@blocks.4/@node_objs.8"/>
+  <edges id="113" source_obj="//@blocks.4/@node_objs.5" sink_obj="//@blocks.4/@node_objs.8"/>
+  <edges id="114" source_obj="//@blocks.4/@node_objs.6" sink_obj="//@blocks.4/@node_objs.8"/>
+  <edges id="115" source_obj="//@blocks.4/@node_objs.8" sink_obj="//@blocks.4/@node_objs.9"/>
+  <edges id="116" sink_obj="//@blocks.4/@node_objs.10"/>
+  <edges id="119" source_obj="//@blocks.4/@node_objs.9" sink_obj="//@blocks.4/@node_objs.10"/>
+  <edges id="120" source_obj="//@blocks.4/@node_objs.10" sink_obj="//@blocks.4/@node_objs.11"/>
+  <edges id="122" source_obj="//@blocks.4/@node_objs.11" sink_obj="//@blocks.4/@node_objs.12"/>
+  <edges id="123" source_obj="//@blocks.4/@node_objs.12" sink_obj="//@blocks.4/@node_objs.13"/>
+  <edges id="124" source_obj="//@blocks.4/@node_objs.2" sink_obj="//@blocks.4/@node_objs.14"/>
+  <edges id="125" source_obj="//@blocks.4/@node_objs.0" sink_obj="//@blocks.4/@node_objs.14"/>
+  <edges id="126" source_obj="//@blocks.4/@node_objs.6" sink_obj="//@blocks.4/@node_objs.14"/>
+  <edges id="127" source_obj="//@blocks.4/@node_objs.14" sink_obj="//@blocks.4/@node_objs.15"/>
+  <edges id="128" sink_obj="//@blocks.4/@node_objs.16"/>
+  <edges id="130" source_obj="//@blocks.4/@node_objs.15" sink_obj="//@blocks.4/@node_objs.16"/>
+  <edges id="131" source_obj="//@blocks.4/@node_objs.16" sink_obj="//@blocks.4/@node_objs.17"/>
+  <edges id="132" source_obj="//@blocks.4/@node_objs.17" sink_obj="//@blocks.4/@node_objs.18"/>
+  <edges id="133" source_obj="//@blocks.4/@node_objs.2" sink_obj="//@blocks.4/@node_objs.19"/>
+  <edges id="134" source_obj="//@blocks.4/@node_objs.4" sink_obj="//@blocks.4/@node_objs.19"/>
+  <edges id="135" source_obj="//@blocks.4/@node_objs.19" sink_obj="//@blocks.4/@node_objs.20"/>
+  <edges id="136" source_obj="//@blocks.4/@node_objs.18" sink_obj="//@blocks.4/@node_objs.20"/>
+  <edges id="137" source_obj="//@blocks.4/@node_objs.13" sink_obj="//@blocks.4/@node_objs.20"/>
+  <edges id="138" source_obj="//@blocks.4/@node_objs.20" sink_obj="//@blocks.4/@node_objs.21"/>
+  <edges id="141" source_obj="//@blocks.4/@node_objs.22" sink_obj="//@ports.2"/>
+  <edges id="142" source_obj="//@blocks.4/@node_objs.21" sink_obj="//@blocks.4/@node_objs.22"/>
+  <edges id="144" source_obj="//@blocks.4/@node_objs.23" sink_obj="//@ports.3"/>
+  <edges id="145" source_obj="//@blocks.4/@node_objs.21" sink_obj="//@blocks.4/@node_objs.23"/>
+  <edges id="146" edge_type="CtrlEdge" source_obj="//@blocks.5" sink_obj="//@blocks.4/@node_objs.24"/>
+  <edges id="147" source_obj="//@blocks.3/@node_objs.0" sink_obj="//@blocks.5/@node_objs.0"/>
+  <edges id="150" source_obj="//@blocks.5/@node_objs.0" sink_obj="//@blocks.5/@node_objs.1"/>
+  <edges id="151" sink_obj="//@blocks.5/@node_objs.1"/>
+  <edges id="152" edge_type="CtrlEdge" source_obj="//@blocks.6" sink_obj="//@blocks.5/@node_objs.2"/>
+  <edges id="243" edge_type="CtrlEdge" source_obj="//@blocks.0" sink_obj="//@blocks.2"/>
+  <edges id="244" edge_type="CtrlEdge" source_obj="//@blocks.0" sink_obj="//@blocks.1"/>
+  <edges id="245" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@blocks.3"/>
+  <edges id="246" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@blocks.6"/>
+  <edges id="247" edge_type="CtrlEdge" source_obj="//@blocks.2" sink_obj="//@blocks.3"/>
+  <edges id="248" edge_type="CtrlEdge" source_obj="//@blocks.2" sink_obj="//@blocks.6"/>
+  <edges id="249" edge_type="CtrlEdge" source_obj="//@blocks.3" sink_obj="//@blocks.4"/>
+  <edges id="250" edge_type="CtrlEdge" source_obj="//@blocks.3" sink_obj="//@blocks.5"/>
+  <edges id="251" edge_type="CtrlEdge" source_obj="//@blocks.4" sink_obj="//@blocks.5"/>
+  <edges id="252" edge_type="CtrlEdge" source_obj="//@blocks.5" sink_obj="//@blocks.6"/>
+  <edges id="253" edge_type="VirtEdge" source_obj="//@blocks.0/@node_objs.2" sink_obj="//@blocks.1/@node_objs.1"/>
+  <edges id="254" edge_type="VirtEdge" source_obj="//@blocks.3/@node_objs.0" sink_obj="//@blocks.5/@node_objs.1"/>
+  <blocks id="25" name="block_25" type="BlockType">
+    <controlOutputObjs>thread-pre-split</controlOutputObjs>
+    <controlOutputObjs>block_29</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="13" name="step_read" originalName="step" coreId="0" bitwidth="1" opcode="read" m_display="0" m_topoIndex="1" m_clusterGroupNumber="-1">
+      <dataInputObjs>step</dataInputObjs>
+      <dataOutputObjs>br</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="14" name="start_read" originalName="start" coreId="132" bitwidth="1" opcode="read" m_display="0" m_topoIndex="2" m_clusterGroupNumber="-1">
+      <dataInputObjs>start_r</dataInputObjs>
+      <dataOutputObjs>store</dataOutputObjs>
+      <dataOutputObjs>br</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="23" name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" coreId="68" bitwidth="1" opcode="load" m_display="0" m_topoIndex="3" m_clusterGroupNumber="-1">
+      <dataOutputObjs>br</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="24" name="br_ln41" lineNumber="41" fileName="sinus.cpp" fileDirectory=".." coreId="49" contextFuncName="sinus" opcode="br" m_display="0" m_topoIndex="4" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="sinus.cpp" linenumber="41" fileDirectory="/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start" functionName="sinus"/>
+      <dataInputObjs>load</dataInputObjs>
+      <controlInputObjs>block_29</controlInputObjs>
+      <controlInputObjs>thread-pre-split</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="sinus.cpp">
+      <validLinenumbers>41</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="29" name="block_29" type="BlockType">
+    <controlInputObjs>block_25</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>thread-pre-split._crit_edge</controlOutputObjs>
+    <controlOutputObjs>thread-pre-split._crit_edge2</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="26" name="start_tmp_write_ln41" lineNumber="41" fileName="sinus.cpp" fileDirectory=".." coreId="2511719536" contextFuncName="sinus" opcode="store" m_display="0" m_topoIndex="5" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="sinus.cpp" linenumber="41" fileDirectory="/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start" functionName="sinus"/>
+      <dataInputObjs>read</dataInputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="27" name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_write_ln0" coreId="1393" opcode="store" m_display="0" m_topoIndex="6" m_clusterGroupNumber="-1">
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="28" name="br_ln42" lineNumber="42" fileName="sinus.cpp" fileDirectory=".." coreId="4093640832" contextFuncName="sinus" opcode="br" m_display="0" m_topoIndex="7" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="sinus.cpp" linenumber="42" fileDirectory="/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start" functionName="sinus"/>
+      <dataInputObjs>read</dataInputObjs>
+      <controlInputObjs>thread-pre-split._crit_edge2</controlInputObjs>
+      <controlInputObjs>thread-pre-split._crit_edge</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="sinus.cpp">
+      <validLinenumbers>41</validLinenumbers>
+      <validLinenumbers>42</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="32" name="thread-pre-split" type="BlockType">
+    <controlInputObjs>block_25</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>thread-pre-split._crit_edge</controlOutputObjs>
+    <controlOutputObjs>thread-pre-split._crit_edge2</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="30" name="start_tmp_load" lineNumber="42" fileName="sinus.cpp" fileDirectory=".." coreId="49" contextFuncName="sinus" bitwidth="1" opcode="load" m_display="0" m_topoIndex="8" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="sinus.cpp" linenumber="42" fileDirectory="/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start" functionName="sinus"/>
+      <dataOutputObjs>br</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="31" name="br_ln42" lineNumber="42" fileName="sinus.cpp" fileDirectory=".." coreId="2511844560" contextFuncName="sinus" opcode="br" m_display="0" m_topoIndex="9" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="sinus.cpp" linenumber="42" fileDirectory="/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start" functionName="sinus"/>
+      <dataInputObjs>load</dataInputObjs>
+      <controlInputObjs>thread-pre-split._crit_edge2</controlInputObjs>
+      <controlInputObjs>thread-pre-split._crit_edge</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="sinus.cpp">
+      <validLinenumbers>42</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="35" name="thread-pre-split._crit_edge" type="BlockType">
+    <controlInputObjs>block_29</controlInputObjs>
+    <controlInputObjs>thread-pre-split</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>_ifconv</controlOutputObjs>
+    <controlOutputObjs>._crit_edge5</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="33" name="n_load" lineNumber="534" originalName="n" fileName="/tools/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot/ap_int_base.h" fileDirectory=".." coreId="0" contextFuncName="operator_unsigned_long_long" bitwidth="8" opcode="load" m_display="0" m_topoIndex="10" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="/tools/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot/ap_int_base.h" linenumber="534" fileDirectory="/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start" functionName="operator unsigned long long"/>
+      <dataOutputObjs>trunc</dataOutputObjs>
+      <dataOutputObjs>trunc</dataOutputObjs>
+      <dataOutputObjs>icmp</dataOutputObjs>
+      <dataOutputObjs>bitselect</dataOutputObjs>
+      <dataOutputObjs>icmp</dataOutputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="34" name="br_ln47" lineNumber="47" fileName="sinus.cpp" fileDirectory=".." coreId="49" contextFuncName="sinus" opcode="br" m_display="0" m_topoIndex="11" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="sinus.cpp" linenumber="47" fileDirectory="/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start" functionName="sinus"/>
+      <dataInputObjs>read</dataInputObjs>
+      <controlInputObjs>._crit_edge5</controlInputObjs>
+      <controlInputObjs>_ifconv</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="sinus.cpp">
+      <validLinenumbers>47</validLinenumbers>
+    </fileValidLineNumbers>
+    <fileValidLineNumbers fileName="/tools/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot/ap_int_base.h">
+      <validLinenumbers>534</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="61" name="_ifconv" type="BlockType">
+    <controlInputObjs>thread-pre-split._crit_edge</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>._crit_edge5</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="36" name="trunc_ln5" lineNumber="5" fileName="sinus.cpp" fileDirectory=".." rtlName="trunc_ln5_fu_129_p1" coreId="2511722400" contextFuncName="sin_lookup" bitwidth="7" opcode="trunc" m_display="0" m_topoIndex="12" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="sinus.cpp" linenumber="5" fileDirectory="/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start" functionName="sin_lookup"/>
+      <dataInputObjs>load</dataInputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="37" name="trunc_ln5_1" lineNumber="5" fileName="sinus.cpp" fileDirectory=".." rtlName="trunc_ln5_1_fu_133_p1" coreId="132" contextFuncName="sin_lookup" bitwidth="6" opcode="trunc" m_display="0" m_topoIndex="13" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="sinus.cpp" linenumber="5" fileDirectory="/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start" functionName="sin_lookup"/>
+      <dataInputObjs>load</dataInputObjs>
+      <dataOutputObjs>zext</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="38" name="icmp_ln13" lineNumber="13" fileName="sinus.cpp" fileDirectory=".." rtlName="icmp_ln13_fu_137_p2" opType="icmp" coreId="2511714000" contextFuncName="sin_lookup" bitwidth="1" opcode="icmp" m_display="0" m_delay="0.58" m_topoIndex="14" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="sinus.cpp" linenumber="13" fileDirectory="/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start" functionName="sin_lookup"/>
+      <dataInputObjs>load</dataInputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+      <dataOutputObjs>or</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="39" name="tmp" lineNumber="17" fileName="sinus.cpp" fileDirectory=".." rtlName="tmp_fu_185_p3" coreId="2511713392" contextFuncName="sin_lookup" bitwidth="1" opcode="bitselect" nodeLabel="1.0" m_display="0" m_topoIndex="26" m_clusterGroupNumber="1">
+      <inlineStackInfo fileName="sinus.cpp" linenumber="17" fileDirectory="/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start" functionName="sin_lookup"/>
+      <dataInputObjs>load</dataInputObjs>
+      <dataOutputObjs>xor</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="40" name="xor_ln17" lineNumber="17" fileName="sinus.cpp" fileDirectory=".." rtlName="xor_ln17_fu_192_p2" opType="xor" coreId="49" contextFuncName="sin_lookup" bitwidth="1" opcode="xor" nodeLabel="1.0" m_display="0" m_topoIndex="27" m_clusterGroupNumber="1">
+      <inlineStackInfo fileName="sinus.cpp" linenumber="17" fileDirectory="/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start" functionName="sin_lookup"/>
+      <dataInputObjs>bitselect</dataInputObjs>
+      <dataOutputObjs>or</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="41" name="zext_ln18" lineNumber="18" fileName="sinus.cpp" fileDirectory=".." rtlName="zext_ln18_fu_143_p1" coreId="0" contextFuncName="sin_lookup" bitwidth="7" opcode="zext" m_display="0" m_topoIndex="15" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="sinus.cpp" linenumber="18" fileDirectory="/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start" functionName="sin_lookup"/>
+      <dataInputObjs>trunc</dataInputObjs>
+      <dataOutputObjs>sub</dataOutputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="42" name="idx" lineNumber="18" originalName="idx" fileName="sinus.cpp" fileDirectory=".." rtlName="idx_fu_147_p2" coreName="Adder" implIndex="fabric" control="auto" opType="sub" coreId="1" contextFuncName="sin_lookup" bitwidth="7" opcode="sub" m_display="0" m_delay="0.7" m_topoIndex="16" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="sinus.cpp" linenumber="18" fileDirectory="/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start" functionName="sin_lookup"/>
+      <dataInputObjs>zext</dataInputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="43" name="icmp_ln21" lineNumber="21" fileName="sinus.cpp" fileDirectory=".." rtlName="icmp_ln21_fu_153_p2" opType="icmp" coreId="0" contextFuncName="sin_lookup" bitwidth="1" opcode="icmp" m_display="0" m_delay="0.58" m_topoIndex="17" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="sinus.cpp" linenumber="21" fileDirectory="/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start" functionName="sin_lookup"/>
+      <dataInputObjs>load</dataInputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="44" name="idx_1" lineNumber="21" originalName="idx" fileName="sinus.cpp" fileDirectory=".." rtlName="idx_1_fu_159_p3" coreName="Sel" implIndex="auto_sel" control="auto" opType="select" coreId="73" contextFuncName="sin_lookup" bitwidth="7" opcode="select" m_display="0" m_delay="0.3" m_topoIndex="18" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="sinus.cpp" linenumber="21" fileDirectory="/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start" functionName="sin_lookup"/>
+      <dataInputObjs>icmp</dataInputObjs>
+      <dataInputObjs>zext</dataInputObjs>
+      <dataInputObjs>sub</dataInputObjs>
+      <dataOutputObjs>zext</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="45" name="idxprom_i1" lineNumber="21" fileName="sinus.cpp" fileDirectory=".." rtlName="idxprom_i1_fu_167_p1" coreId="0" contextFuncName="sin_lookup" bitwidth="64" opcode="zext" m_display="0" m_topoIndex="19" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="sinus.cpp" linenumber="21" fileDirectory="/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start" functionName="sin_lookup"/>
+      <dataInputObjs>select</dataInputObjs>
+      <dataOutputObjs>getelementptr</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="46" name="sin_table_addr" lineNumber="21" fileName="sinus.cpp" fileDirectory=".." coreId="132" contextFuncName="sin_lookup" bitwidth="7" opcode="getelementptr" m_display="0" m_topoIndex="20" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="sinus.cpp" linenumber="21" fileDirectory="/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start" functionName="sin_lookup"/>
+      <dataInputObjs>zext</dataInputObjs>
+      <dataOutputObjs>load</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="47" name="sin_table_load" lineNumber="21" fileName="sinus.cpp" fileDirectory=".." coreName="ROM" implIndex="auto" control="auto" opType="rom" coreId="101" contextFuncName="sin_lookup" bitwidth="8" opcode="load" nodeLatency="1" m_display="0" m_delay="0.56" m_topoIndex="21" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="sinus.cpp" linenumber="21" fileDirectory="/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start" functionName="sin_lookup"/>
+      <dataInputObjs>getelementptr</dataInputObjs>
+      <dataOutputObjs>sub</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="48" name="sub_ln31" lineNumber="31" fileName="sinus.cpp" fileDirectory=".." rtlName="sub_ln31_fu_198_p2" coreName="Adder" implIndex="fabric" control="auto" opType="sub" coreId="1" contextFuncName="sin_lookup" bitwidth="8" opcode="sub" nodeLabel="1.0" m_display="0" m_delay="0.7" m_topoIndex="28" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="sinus.cpp" linenumber="31" fileDirectory="/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start" functionName="sin_lookup"/>
+      <dataInputObjs>load</dataInputObjs>
+      <dataOutputObjs>sext</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="49" name="sext_ln13" lineNumber="13" fileName="sinus.cpp" fileDirectory=".." rtlName="sext_ln13_fu_204_p1" coreId="0" contextFuncName="sin_lookup" bitwidth="9" opcode="sext" nodeLabel="1.0" m_display="0" m_topoIndex="29" m_clusterGroupNumber="1">
+      <inlineStackInfo fileName="sinus.cpp" linenumber="13" fileDirectory="/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start" functionName="sin_lookup"/>
+      <dataInputObjs>sub</dataInputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="50" name="select_ln13" lineNumber="13" fileName="sinus.cpp" fileDirectory=".." rtlName="select_ln13_fu_172_p3" coreName="Sel" implIndex="auto_sel" control="auto" opType="select" coreId="73" contextFuncName="sin_lookup" bitwidth="7" opcode="select" m_display="0" m_delay="0.3" m_topoIndex="22" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="sinus.cpp" linenumber="13" fileDirectory="/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start" functionName="sin_lookup"/>
+      <dataInputObjs>icmp</dataInputObjs>
+      <dataInputObjs>trunc</dataInputObjs>
+      <dataInputObjs>sub</dataInputObjs>
+      <dataOutputObjs>zext</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="51" name="idxprom_i4" lineNumber="13" fileName="sinus.cpp" fileDirectory=".." rtlName="idxprom_i4_fu_180_p1" coreId="0" contextFuncName="sin_lookup" bitwidth="64" opcode="zext" m_display="0" m_topoIndex="23" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="sinus.cpp" linenumber="13" fileDirectory="/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start" functionName="sin_lookup"/>
+      <dataInputObjs>select</dataInputObjs>
+      <dataOutputObjs>getelementptr</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="52" name="sin_table_addr_1" lineNumber="13" fileName="sinus.cpp" fileDirectory=".." coreId="2511841168" contextFuncName="sin_lookup" bitwidth="7" opcode="getelementptr" m_display="0" m_topoIndex="24" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="sinus.cpp" linenumber="13" fileDirectory="/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start" functionName="sin_lookup"/>
+      <dataInputObjs>zext</dataInputObjs>
+      <dataOutputObjs>load</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="53" name="sin_table_load_1" lineNumber="13" fileName="sinus.cpp" fileDirectory=".." coreName="ROM" implIndex="auto" control="auto" opType="rom" coreId="101" contextFuncName="sin_lookup" bitwidth="8" opcode="load" nodeLatency="1" m_display="0" m_delay="0.56" m_topoIndex="25" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="sinus.cpp" linenumber="13" fileDirectory="/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start" functionName="sin_lookup"/>
+      <dataInputObjs>getelementptr</dataInputObjs>
+      <dataOutputObjs>zext</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="54" name="zext_ln17" lineNumber="17" fileName="sinus.cpp" fileDirectory=".." rtlName="zext_ln17_fu_208_p1" coreId="132" contextFuncName="sin_lookup" bitwidth="9" opcode="zext" nodeLabel="1.0" m_display="0" m_topoIndex="30" m_clusterGroupNumber="1">
+      <inlineStackInfo fileName="sinus.cpp" linenumber="17" fileDirectory="/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start" functionName="sin_lookup"/>
+      <dataInputObjs>load</dataInputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="55" name="or_ln17" lineNumber="17" fileName="sinus.cpp" fileDirectory=".." rtlName="or_ln17_fu_212_p2" opType="or" coreId="49" contextFuncName="sin_lookup" bitwidth="1" opcode="or" nodeLabel="1.0" m_display="0" m_topoIndex="31" m_clusterGroupNumber="1">
+      <inlineStackInfo fileName="sinus.cpp" linenumber="17" fileDirectory="/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start" functionName="sin_lookup"/>
+      <dataInputObjs>icmp</dataInputObjs>
+      <dataInputObjs>xor</dataInputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="56" name="signal_tmp" lineNumber="17" originalName="signal_tmp" fileName="sinus.cpp" fileDirectory=".." rtlName="signal_tmp_fu_217_p3" coreName="Sel" implIndex="auto_sel" control="auto" opType="select" coreId="73" contextFuncName="sin_lookup" bitwidth="9" opcode="select" nodeLabel="1.0" m_display="0" m_delay="0.3" m_topoIndex="32" m_clusterGroupNumber="1">
+      <inlineStackInfo fileName="sinus.cpp" linenumber="17" fileDirectory="/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start" functionName="sin_lookup"/>
+      <dataInputObjs>or</dataInputObjs>
+      <dataInputObjs>zext</dataInputObjs>
+      <dataInputObjs>sext</dataInputObjs>
+      <dataOutputObjs>sext</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="57" name="sext_ln49" lineNumber="49" fileName="sinus.cpp" fileDirectory=".." rtlName="sext_ln49_fu_225_p1" coreId="2511804512" contextFuncName="sinus" bitwidth="32" opcode="sext" nodeLabel="1.0" m_display="0" m_topoIndex="33" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="sinus.cpp" linenumber="49" fileDirectory="/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start" functionName="sinus"/>
+      <dataInputObjs>select</dataInputObjs>
+      <dataOutputObjs>write</dataOutputObjs>
+      <dataOutputObjs>write</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="58" name="signal_1_V_write_ln174" lineNumber="174" fileName="/tools/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot/hls_stream_39.h" fileDirectory=".." coreName="FIFO" implIndex="memory" control="auto" opType="fifo" coreId="78" contextFuncName="write" opcode="write" nodeLabel="1.0" m_display="0" m_delay="1.32" m_topoIndex="34" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="/tools/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot/hls_stream_39.h" linenumber="174" fileDirectory="/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start" functionName="write"/>
+      <dataInputObjs>sext</dataInputObjs>
+      <dataOutputObjs>signal_1_V</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="59" name="signal_2_V_write_ln174" lineNumber="174" fileName="/tools/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot/hls_stream_39.h" fileDirectory=".." coreName="FIFO" implIndex="memory" control="auto" opType="fifo" coreId="78" contextFuncName="write" opcode="write" nodeLabel="1.0" m_display="0" m_delay="1.32" m_topoIndex="35" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="/tools/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot/hls_stream_39.h" linenumber="174" fileDirectory="/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start" functionName="write"/>
+      <dataInputObjs>sext</dataInputObjs>
+      <dataOutputObjs>signal_2_V</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="60" name="br_ln53" lineNumber="53" fileName="sinus.cpp" fileDirectory=".." coreId="1953391988" contextFuncName="sinus" opcode="br" nodeLabel="1.0" m_display="0" m_topoIndex="36" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="sinus.cpp" linenumber="53" fileDirectory="/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start" functionName="sinus"/>
+      <controlInputObjs>._crit_edge5</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="/tools/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot/hls_stream_39.h">
+      <validLinenumbers>174</validLinenumbers>
+    </fileValidLineNumbers>
+    <fileValidLineNumbers fileName="sinus.cpp">
+      <validLinenumbers>5</validLinenumbers>
+      <validLinenumbers>13</validLinenumbers>
+      <validLinenumbers>17</validLinenumbers>
+      <validLinenumbers>18</validLinenumbers>
+      <validLinenumbers>21</validLinenumbers>
+      <validLinenumbers>31</validLinenumbers>
+      <validLinenumbers>49</validLinenumbers>
+      <validLinenumbers>53</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="65" name="._crit_edge5" type="BlockType">
+    <controlInputObjs>thread-pre-split._crit_edge</controlInputObjs>
+    <controlInputObjs>_ifconv</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>thread-pre-split._crit_edge2</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="62" name="add_ln691" lineNumber="691" fileName="/tools/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot/ap_int_base.h" fileDirectory=".." rtlName="add_ln691_fu_231_p2" coreName="Adder" implIndex="fabric" control="auto" opType="add" coreId="1" contextFuncName="operator_add_assign_32_true" bitwidth="8" opcode="add" nodeLabel="1.0" m_display="0" m_delay="0.7" m_topoIndex="37" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="/tools/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot/ap_int_base.h" linenumber="691" fileDirectory="/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start" functionName="operator+=&amp;lt;32, true&amp;gt;"/>
+      <dataInputObjs>load</dataInputObjs>
+      <dataOutputObjs>store</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="63" name="n_write_ln691" lineNumber="691" fileName="/tools/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot/ap_int_base.h" fileDirectory=".." coreId="4" contextFuncName="operator_add_assign_32_true" opcode="store" nodeLabel="1.0" m_display="0" m_topoIndex="38" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="/tools/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot/ap_int_base.h" linenumber="691" fileDirectory="/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start" functionName="operator+=&amp;lt;32, true&amp;gt;"/>
+      <dataInputObjs>add</dataInputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="64" name="br_ln55" lineNumber="55" fileName="sinus.cpp" fileDirectory=".." coreId="121" contextFuncName="sinus" opcode="br" nodeLabel="1.0" m_display="0" m_topoIndex="39" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="sinus.cpp" linenumber="55" fileDirectory="/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start" functionName="sinus"/>
+      <controlInputObjs>thread-pre-split._crit_edge2</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="sinus.cpp">
+      <validLinenumbers>55</validLinenumbers>
+    </fileValidLineNumbers>
+    <fileValidLineNumbers fileName="/tools/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot/ap_int_base.h">
+      <validLinenumbers>691</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="67" name="thread-pre-split._crit_edge2" type="BlockType">
+    <controlInputObjs>block_29</controlInputObjs>
+    <controlInputObjs>thread-pre-split</controlInputObjs>
+    <controlInputObjs>._crit_edge5</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="66" name="_ln56" lineNumber="56" fileName="sinus.cpp" fileDirectory=".." coreId="2511818184" contextFuncName="sinus" opcode="ret" nodeLabel="1.0" m_display="0" m_topoIndex="40" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="sinus.cpp" linenumber="56" fileDirectory="/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start" functionName="sinus"/>
+    </node_objs>
+    <fileValidLineNumbers fileName="sinus.cpp">
+      <validLinenumbers>56</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <ScheduleInfo time="0"/>
+  <ScheduleInfo time="1"/>
+  <regnodes realName="step_read_reg_242">
+    <nodeIds>13</nodeIds>
+  </regnodes>
+  <regnodes realName="sin_table_addr_1_reg_271">
+    <nodeIds>52</nodeIds>
+  </regnodes>
+  <regnodes realName="start_tmp_load_reg_254">
+    <nodeIds>30</nodeIds>
+  </regnodes>
+  <regnodes realName="sin_table_addr_reg_266">
+    <nodeIds>46</nodeIds>
+  </regnodes>
+  <regnodes realName="start_read_reg_246">
+    <nodeIds>14</nodeIds>
+  </regnodes>
+  <regnodes realName="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load_reg_250">
+    <nodeIds>23</nodeIds>
+  </regnodes>
+  <regnodes realName="icmp_ln13_reg_261">
+    <nodeIds>38</nodeIds>
+  </regnodes>
+  <expressionNodes realName="trunc_ln5_fu_129">
+    <nodeIds>36</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="icmp_ln21_fu_153">
+    <nodeIds>43</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="sext_ln13_fu_204">
+    <nodeIds>49</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="sub_ln31_fu_198">
+    <nodeIds>48</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="idx_fu_147">
+    <nodeIds>42</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="xor_ln17_fu_192">
+    <nodeIds>40</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="select_ln13_fu_172">
+    <nodeIds>50</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="sin_table_addr_gep_fu_80">
+    <nodeIds>46</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="icmp_ln13_fu_137">
+    <nodeIds>38</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="zext_ln18_fu_143">
+    <nodeIds>41</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="sext_ln49_fu_225">
+    <nodeIds>57</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="idx_1_fu_159">
+    <nodeIds>44</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="sin_table_addr_1_gep_fu_97">
+    <nodeIds>52</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="tmp_fu_185">
+    <nodeIds>39</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="or_ln17_fu_212">
+    <nodeIds>55</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="signal_tmp_fu_217">
+    <nodeIds>56</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="add_ln691_fu_231">
+    <nodeIds>62</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="trunc_ln5_1_fu_133">
+    <nodeIds>37</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="idxprom_i1_fu_167">
+    <nodeIds>45</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="idxprom_i4_fu_180">
+    <nodeIds>51</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="zext_ln17_fu_208">
+    <nodeIds>54</nodeIds>
+  </expressionNodes>
+  <ioNodes realName="step_read_read_fu_54">
+    <nodeIds>13</nodeIds>
+  </ioNodes>
+  <ioNodes realName="start_read_read_fu_60">
+    <nodeIds>14</nodeIds>
+  </ioNodes>
+  <ioNodes realName="store_ln691_store_fu_236">
+    <nodeIds>63</nodeIds>
+  </ioNodes>
+  <ioNodes realName="store_ln41_store_fu_109">
+    <nodeIds>26</nodeIds>
+  </ioNodes>
+  <ioNodes realName="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load_load_fu_105">
+    <nodeIds>23</nodeIds>
+  </ioNodes>
+  <ioNodes realName="start_tmp_load_load_fu_121">
+    <nodeIds>30</nodeIds>
+  </ioNodes>
+  <ioNodes realName="write_ln174_write_fu_73">
+    <nodeIds>59</nodeIds>
+  </ioNodes>
+  <ioNodes realName="n_load_load_fu_125">
+    <nodeIds>33</nodeIds>
+  </ioNodes>
+  <ioNodes realName="store_ln0_store_fu_115">
+    <nodeIds>27</nodeIds>
+  </ioNodes>
+  <ioNodes realName="write_ln174_write_fu_66">
+    <nodeIds>58</nodeIds>
+  </ioNodes>
+  <memoryPorts dataString="sin_table">
+    <nodeIds>53</nodeIds>
+  </memoryPorts>
+  <memoryPorts dataString="sin_table" portID="1">
+    <nodeIds>47</nodeIds>
+  </memoryPorts>
+  <ioPorts name="signal_1_V">
+    <contents name="write">
+      <nodeIds>58</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="signal_2_V">
+    <contents name="write">
+      <nodeIds>59</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="start_r">
+    <contents name="read">
+      <nodeIds>14</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="step">
+    <contents name="read">
+      <nodeIds>13</nodeIds>
+    </contents>
+  </ioPorts>
+  <fsm>
+    <states id="1">
+      <operations id="12" stage="1" latency="1"/>
+      <operations id="13" stage="1" latency="1"/>
+      <operations id="14" stage="1" latency="1"/>
+      <operations id="15" stage="1" latency="1"/>
+      <operations id="16" stage="1" latency="1"/>
+      <operations id="17" stage="1" latency="1"/>
+      <operations id="18" stage="1" latency="1"/>
+      <operations id="19" stage="1" latency="1"/>
+      <operations id="20" stage="1" latency="1"/>
+      <operations id="21" stage="1" latency="1"/>
+      <operations id="22" stage="1" latency="1"/>
+      <operations id="23" stage="1" latency="1"/>
+      <operations id="24" stage="1" latency="1"/>
+      <operations id="26" stage="1" latency="1"/>
+      <operations id="27" stage="1" latency="1"/>
+      <operations id="28" stage="1" latency="1"/>
+      <operations id="30" stage="1" latency="1"/>
+      <operations id="31" stage="1" latency="1"/>
+      <operations id="33" stage="1" latency="1"/>
+      <operations id="34" stage="1" latency="1"/>
+      <operations id="36" stage="1" latency="1"/>
+      <operations id="37" stage="1" latency="1"/>
+      <operations id="38" stage="1" latency="1"/>
+      <operations id="41" stage="1" latency="1"/>
+      <operations id="42" stage="1" latency="1"/>
+      <operations id="43" stage="1" latency="1"/>
+      <operations id="44" stage="1" latency="1"/>
+      <operations id="45" stage="1" latency="1"/>
+      <operations id="46" stage="1" latency="1"/>
+      <operations id="47" stage="2" latency="2"/>
+      <operations id="50" stage="1" latency="1"/>
+      <operations id="51" stage="1" latency="1"/>
+      <operations id="52" stage="1" latency="1"/>
+      <operations id="53" stage="2" latency="2"/>
+    </states>
+    <states id="2">
+      <operations id="39" stage="1" latency="1"/>
+      <operations id="40" stage="1" latency="1"/>
+      <operations id="47" stage="1" latency="2"/>
+      <operations id="48" stage="1" latency="1"/>
+      <operations id="49" stage="1" latency="1"/>
+      <operations id="53" stage="1" latency="2"/>
+      <operations id="54" stage="1" latency="1"/>
+      <operations id="55" stage="1" latency="1"/>
+      <operations id="56" stage="1" latency="1"/>
+      <operations id="57" stage="1" latency="1"/>
+      <operations id="58" stage="1" latency="1"/>
+      <operations id="59" stage="1" latency="1"/>
+      <operations id="60" stage="1" latency="1"/>
+      <operations id="62" stage="1" latency="1"/>
+      <operations id="63" stage="1" latency="1"/>
+      <operations id="64" stage="1" latency="1"/>
+      <operations id="66" stage="1" latency="1"/>
+    </states>
+    <transitions inState="1" outState="2">
+      <condition id="-1"/>
+    </transitions>
+  </fsm>
+  <CFGRegionsRoot>
+    <cfgRegions mId="1" mTag="sinus" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1" mMinLatency="1" mMaxLatency="1">
+      <basicBlocks>25</basicBlocks>
+      <basicBlocks>29</basicBlocks>
+      <basicBlocks>32</basicBlocks>
+      <basicBlocks>35</basicBlocks>
+      <basicBlocks>61</basicBlocks>
+      <basicBlocks>65</basicBlocks>
+      <basicBlocks>67</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+  </CFGRegionsRoot>
+</cdfg:DBCdfg>

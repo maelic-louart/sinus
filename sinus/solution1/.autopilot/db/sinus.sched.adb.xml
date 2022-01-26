@@ -1,0 +1,985 @@
+<stg><name>sinus</name>
+
+
+<trans_list>
+
+<trans id="54" from="1" to="2">
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+</trans_list>
+
+
+
+<state_list>
+
+<state id="1" st_id="1">
+
+<operation id="3" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="12" bw="0" op_0_bw="0" op_1_bw="0">
+<![CDATA[
+:0 %spectopmodule_ln0 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_2
+
+]]></Node>
+<StgValue><ssdm name="spectopmodule_ln0"/></StgValue>
+</operation>
+
+<operation id="4" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="13" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+:1 %step_read = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %step
+
+]]></Node>
+<StgValue><ssdm name="step_read"/></StgValue>
+</operation>
+
+<operation id="5" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="14" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+:2 %start_read = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %start_r
+
+]]></Node>
+<StgValue><ssdm name="start_read"/></StgValue>
+</operation>
+
+<operation id="6" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="15" bw="0" op_0_bw="0" op_1_bw="1">
+<![CDATA[
+:3 %specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i1 %start_r
+
+]]></Node>
+<StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
+</operation>
+
+<operation id="7" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="16" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0">
+<![CDATA[
+:4 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %start_r, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0
+
+]]></Node>
+<StgValue><ssdm name="specinterface_ln0"/></StgValue>
+</operation>
+
+<operation id="8" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="17" bw="0" op_0_bw="0" op_1_bw="1">
+<![CDATA[
+:5 %specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i1 %step
+
+]]></Node>
+<StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
+</operation>
+
+<operation id="9" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="18" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0">
+<![CDATA[
+:6 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %step, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0
+
+]]></Node>
+<StgValue><ssdm name="specinterface_ln0"/></StgValue>
+</operation>
+
+<operation id="10" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="19" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0">
+<![CDATA[
+:7 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %signal_1_V, void @empty_1, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0
+
+]]></Node>
+<StgValue><ssdm name="specinterface_ln0"/></StgValue>
+</operation>
+
+<operation id="11" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="20" bw="0" op_0_bw="0" op_1_bw="32">
+<![CDATA[
+:8 %specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %signal_1_V
+
+]]></Node>
+<StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
+</operation>
+
+<operation id="12" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="21" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0">
+<![CDATA[
+:9 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %signal_2_V, void @empty_1, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0
+
+]]></Node>
+<StgValue><ssdm name="specinterface_ln0"/></StgValue>
+</operation>
+
+<operation id="13" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="22" bw="0" op_0_bw="0" op_1_bw="32">
+<![CDATA[
+:10 %specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %signal_2_V
+
+]]></Node>
+<StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
+</operation>
+
+<operation id="14" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="23" bw="1" op_0_bw="1">
+<![CDATA[
+:11 %guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load = load i1 %guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp
+
+]]></Node>
+<StgValue><ssdm name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load"/></StgValue>
+</operation>
+
+<operation id="15" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="24" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<![CDATA[
+:12 %br_ln41 = br i1 %guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load, void, void %thread-pre-split
+
+]]></Node>
+<StgValue><ssdm name="br_ln41"/></StgValue>
+</operation>
+
+<operation id="16" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="26" bw="0" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+:0 %store_ln41 = store i1 %start_read, i1 %start_tmp
+
+]]></Node>
+<StgValue><ssdm name="store_ln41"/></StgValue>
+</operation>
+
+<operation id="17" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="27" bw="0" op_0_bw="1" op_1_bw="1" op_2_bw="0">
+<![CDATA[
+:1 %store_ln0 = store i1 1, i1 %guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp
+
+]]></Node>
+<StgValue><ssdm name="store_ln0"/></StgValue>
+</operation>
+
+<operation id="18" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="28" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<![CDATA[
+:2 %br_ln42 = br i1 %start_read, void %thread-pre-split._crit_edge2, void %thread-pre-split._crit_edge
+
+]]></Node>
+<StgValue><ssdm name="br_ln42"/></StgValue>
+</operation>
+
+<operation id="19" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="30" bw="1" op_0_bw="1">
+<![CDATA[
+thread-pre-split:0 %start_tmp_load = load i1 %start_tmp
+
+]]></Node>
+<StgValue><ssdm name="start_tmp_load"/></StgValue>
+</operation>
+
+<operation id="20" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="31" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<![CDATA[
+thread-pre-split:1 %br_ln42 = br i1 %start_tmp_load, void %thread-pre-split._crit_edge2, void %thread-pre-split._crit_edge
+
+]]></Node>
+<StgValue><ssdm name="br_ln42"/></StgValue>
+</operation>
+
+<operation id="21" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="1"/>
+<literal name="start_tmp_load" val="1"/>
+</and_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="0"/>
+<literal name="start_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="33" bw="8" op_0_bw="8">
+<![CDATA[
+thread-pre-split._crit_edge:0 %n_load = load i8 %n
+
+]]></Node>
+<StgValue><ssdm name="n_load"/></StgValue>
+</operation>
+
+<operation id="22" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="1"/>
+<literal name="start_tmp_load" val="1"/>
+</and_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="0"/>
+<literal name="start_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="34" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<![CDATA[
+thread-pre-split._crit_edge:1 %br_ln47 = br i1 %step_read, void %._crit_edge5, void %_ifconv
+
+]]></Node>
+<StgValue><ssdm name="br_ln47"/></StgValue>
+</operation>
+
+<operation id="23" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="1"/>
+<literal name="start_tmp_load" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="0"/>
+<literal name="start_read" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="36" bw="7" op_0_bw="8">
+<![CDATA[
+_ifconv:0 %trunc_ln5 = trunc i8 %n_load
+
+]]></Node>
+<StgValue><ssdm name="trunc_ln5"/></StgValue>
+</operation>
+
+<operation id="24" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="1"/>
+<literal name="start_tmp_load" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="0"/>
+<literal name="start_read" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="37" bw="6" op_0_bw="8">
+<![CDATA[
+_ifconv:1 %trunc_ln5_1 = trunc i8 %n_load
+
+]]></Node>
+<StgValue><ssdm name="trunc_ln5_1"/></StgValue>
+</operation>
+
+<operation id="25" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="1"/>
+<literal name="start_tmp_load" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="0"/>
+<literal name="start_read" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="38" bw="1" op_0_bw="8" op_1_bw="8">
+<![CDATA[
+_ifconv:2 %icmp_ln13 = icmp_ult  i8 %n_load, i8 65
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln13"/></StgValue>
+</operation>
+
+<operation id="26" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="1"/>
+<literal name="start_tmp_load" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="0"/>
+<literal name="start_read" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="41" bw="7" op_0_bw="6">
+<![CDATA[
+_ifconv:5 %zext_ln18 = zext i6 %trunc_ln5_1
+
+]]></Node>
+<StgValue><ssdm name="zext_ln18"/></StgValue>
+</operation>
+
+<operation id="27" st_id="1" stage="1" lat="1">
+<core>Adder</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="1"/>
+<literal name="start_tmp_load" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="0"/>
+<literal name="start_read" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="42" bw="7" op_0_bw="7" op_1_bw="7">
+<![CDATA[
+_ifconv:6 %idx = sub i7 64, i7 %zext_ln18
+
+]]></Node>
+<StgValue><ssdm name="idx"/></StgValue>
+</operation>
+
+<operation id="28" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="1"/>
+<literal name="start_tmp_load" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="0"/>
+<literal name="start_read" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="43" bw="1" op_0_bw="8" op_1_bw="8">
+<![CDATA[
+_ifconv:7 %icmp_ln21 = icmp_ult  i8 %n_load, i8 192
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln21"/></StgValue>
+</operation>
+
+<operation id="29" st_id="1" stage="1" lat="1">
+<core>Sel</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="1"/>
+<literal name="start_tmp_load" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="0"/>
+<literal name="start_read" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="44" bw="7" op_0_bw="1" op_1_bw="7" op_2_bw="7">
+<![CDATA[
+_ifconv:8 %idx_1 = select i1 %icmp_ln21, i7 %zext_ln18, i7 %idx
+
+]]></Node>
+<StgValue><ssdm name="idx_1"/></StgValue>
+</operation>
+
+<operation id="30" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="1"/>
+<literal name="start_tmp_load" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="0"/>
+<literal name="start_read" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="45" bw="64" op_0_bw="7">
+<![CDATA[
+_ifconv:9 %idxprom_i1 = zext i7 %idx_1
+
+]]></Node>
+<StgValue><ssdm name="idxprom_i1"/></StgValue>
+</operation>
+
+<operation id="31" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="1"/>
+<literal name="start_tmp_load" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="0"/>
+<literal name="start_read" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="46" bw="7" op_0_bw="8" op_1_bw="64" op_2_bw="64">
+<![CDATA[
+_ifconv:10 %sin_table_addr = getelementptr i8 %sin_table, i64 0, i64 %idxprom_i1
+
+]]></Node>
+<StgValue><ssdm name="sin_table_addr"/></StgValue>
+</operation>
+
+<operation id="32" st_id="1" stage="2" lat="2">
+<core>ROM</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="1"/>
+<literal name="start_tmp_load" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="0"/>
+<literal name="start_read" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="47" bw="8" op_0_bw="7">
+<![CDATA[
+_ifconv:11 %sin_table_load = load i7 %sin_table_addr
+
+]]></Node>
+<StgValue><ssdm name="sin_table_load"/></StgValue>
+</operation>
+
+<operation id="33" st_id="1" stage="1" lat="1">
+<core>Sel</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="1"/>
+<literal name="start_tmp_load" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="0"/>
+<literal name="start_read" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="50" bw="7" op_0_bw="1" op_1_bw="7" op_2_bw="7">
+<![CDATA[
+_ifconv:14 %select_ln13 = select i1 %icmp_ln13, i7 %trunc_ln5, i7 %idx
+
+]]></Node>
+<StgValue><ssdm name="select_ln13"/></StgValue>
+</operation>
+
+<operation id="34" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="1"/>
+<literal name="start_tmp_load" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="0"/>
+<literal name="start_read" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="51" bw="64" op_0_bw="7">
+<![CDATA[
+_ifconv:15 %idxprom_i4 = zext i7 %select_ln13
+
+]]></Node>
+<StgValue><ssdm name="idxprom_i4"/></StgValue>
+</operation>
+
+<operation id="35" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="1"/>
+<literal name="start_tmp_load" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="0"/>
+<literal name="start_read" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="52" bw="7" op_0_bw="8" op_1_bw="64" op_2_bw="64">
+<![CDATA[
+_ifconv:16 %sin_table_addr_1 = getelementptr i8 %sin_table, i64 0, i64 %idxprom_i4
+
+]]></Node>
+<StgValue><ssdm name="sin_table_addr_1"/></StgValue>
+</operation>
+
+<operation id="36" st_id="1" stage="2" lat="2">
+<core>ROM</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="1"/>
+<literal name="start_tmp_load" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="0"/>
+<literal name="start_read" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="53" bw="8" op_0_bw="7">
+<![CDATA[
+_ifconv:17 %sin_table_load_1 = load i7 %sin_table_addr_1
+
+]]></Node>
+<StgValue><ssdm name="sin_table_load_1"/></StgValue>
+</operation>
+</state>
+
+<state id="2" st_id="2">
+
+<operation id="37" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="1"/>
+<literal name="start_tmp_load" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="0"/>
+<literal name="start_read" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="39" bw="1" op_0_bw="1" op_1_bw="8" op_2_bw="32">
+<![CDATA[
+_ifconv:3 %tmp = bitselect i1 @_ssdm_op_BitSelect.i1.i8.i32, i8 %n_load, i32 7
+
+]]></Node>
+<StgValue><ssdm name="tmp"/></StgValue>
+</operation>
+
+<operation id="38" st_id="2" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="1"/>
+<literal name="start_tmp_load" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="0"/>
+<literal name="start_read" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="40" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+_ifconv:4 %xor_ln17 = xor i1 %tmp, i1 1
+
+]]></Node>
+<StgValue><ssdm name="xor_ln17"/></StgValue>
+</operation>
+
+<operation id="39" st_id="2" stage="1" lat="2">
+<core>ROM</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="1"/>
+<literal name="start_tmp_load" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="0"/>
+<literal name="start_read" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="47" bw="8" op_0_bw="7">
+<![CDATA[
+_ifconv:11 %sin_table_load = load i7 %sin_table_addr
+
+]]></Node>
+<StgValue><ssdm name="sin_table_load"/></StgValue>
+</operation>
+
+<operation id="40" st_id="2" stage="1" lat="1">
+<core>Adder</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="1"/>
+<literal name="start_tmp_load" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="0"/>
+<literal name="start_read" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="48" bw="8" op_0_bw="8" op_1_bw="8">
+<![CDATA[
+_ifconv:12 %sub_ln31 = sub i8 0, i8 %sin_table_load
+
+]]></Node>
+<StgValue><ssdm name="sub_ln31"/></StgValue>
+</operation>
+
+<operation id="41" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="1"/>
+<literal name="start_tmp_load" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="0"/>
+<literal name="start_read" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="49" bw="9" op_0_bw="8">
+<![CDATA[
+_ifconv:13 %sext_ln13 = sext i8 %sub_ln31
+
+]]></Node>
+<StgValue><ssdm name="sext_ln13"/></StgValue>
+</operation>
+
+<operation id="42" st_id="2" stage="1" lat="2">
+<core>ROM</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="1"/>
+<literal name="start_tmp_load" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="0"/>
+<literal name="start_read" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="53" bw="8" op_0_bw="7">
+<![CDATA[
+_ifconv:17 %sin_table_load_1 = load i7 %sin_table_addr_1
+
+]]></Node>
+<StgValue><ssdm name="sin_table_load_1"/></StgValue>
+</operation>
+
+<operation id="43" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="1"/>
+<literal name="start_tmp_load" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="0"/>
+<literal name="start_read" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="54" bw="9" op_0_bw="8">
+<![CDATA[
+_ifconv:18 %zext_ln17 = zext i8 %sin_table_load_1
+
+]]></Node>
+<StgValue><ssdm name="zext_ln17"/></StgValue>
+</operation>
+
+<operation id="44" st_id="2" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="1"/>
+<literal name="start_tmp_load" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="0"/>
+<literal name="start_read" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="55" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+_ifconv:19 %or_ln17 = or i1 %icmp_ln13, i1 %xor_ln17
+
+]]></Node>
+<StgValue><ssdm name="or_ln17"/></StgValue>
+</operation>
+
+<operation id="45" st_id="2" stage="1" lat="1">
+<core>Sel</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="1"/>
+<literal name="start_tmp_load" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="0"/>
+<literal name="start_read" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="56" bw="9" op_0_bw="1" op_1_bw="9" op_2_bw="9">
+<![CDATA[
+_ifconv:20 %signal_tmp = select i1 %or_ln17, i9 %zext_ln17, i9 %sext_ln13
+
+]]></Node>
+<StgValue><ssdm name="signal_tmp"/></StgValue>
+</operation>
+
+<operation id="46" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="1"/>
+<literal name="start_tmp_load" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="0"/>
+<literal name="start_read" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="57" bw="32" op_0_bw="9">
+<![CDATA[
+_ifconv:21 %sext_ln49 = sext i9 %signal_tmp
+
+]]></Node>
+<StgValue><ssdm name="sext_ln49"/></StgValue>
+</operation>
+
+<operation id="47" st_id="2" stage="1" lat="1">
+<core>FIFO</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="1"/>
+<literal name="start_tmp_load" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="0"/>
+<literal name="start_read" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="58" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+_ifconv:22 %write_ln174 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %signal_1_V, i32 %sext_ln49
+
+]]></Node>
+<StgValue><ssdm name="write_ln174"/></StgValue>
+</operation>
+
+<operation id="48" st_id="2" stage="1" lat="1">
+<core>FIFO</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="1"/>
+<literal name="start_tmp_load" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="0"/>
+<literal name="start_read" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="59" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+_ifconv:23 %write_ln174 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %signal_2_V, i32 %sext_ln49
+
+]]></Node>
+<StgValue><ssdm name="write_ln174"/></StgValue>
+</operation>
+
+<operation id="49" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="1"/>
+<literal name="start_tmp_load" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="0"/>
+<literal name="start_read" val="1"/>
+<literal name="step_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="60" bw="0" op_0_bw="0">
+<![CDATA[
+_ifconv:24 %br_ln53 = br void %._crit_edge5
+
+]]></Node>
+<StgValue><ssdm name="br_ln53"/></StgValue>
+</operation>
+
+<operation id="50" st_id="2" stage="1" lat="1">
+<core>Adder</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="1"/>
+<literal name="start_tmp_load" val="1"/>
+</and_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="0"/>
+<literal name="start_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="62" bw="8" op_0_bw="8" op_1_bw="8">
+<![CDATA[
+._crit_edge5:0 %add_ln691 = add i8 %n_load, i8 1
+
+]]></Node>
+<StgValue><ssdm name="add_ln691"/></StgValue>
+</operation>
+
+<operation id="51" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="1"/>
+<literal name="start_tmp_load" val="1"/>
+</and_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="0"/>
+<literal name="start_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="0" op_0_bw="8" op_1_bw="8" op_2_bw="0">
+<![CDATA[
+._crit_edge5:1 %store_ln691 = store i8 %add_ln691, i8 %n
+
+]]></Node>
+<StgValue><ssdm name="store_ln691"/></StgValue>
+</operation>
+
+<operation id="52" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="1"/>
+<literal name="start_tmp_load" val="1"/>
+</and_exp><and_exp><literal name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load" val="0"/>
+<literal name="start_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="64" bw="0" op_0_bw="0">
+<![CDATA[
+._crit_edge5:2 %br_ln55 = br void %thread-pre-split._crit_edge2
+
+]]></Node>
+<StgValue><ssdm name="br_ln55"/></StgValue>
+</operation>
+
+<operation id="53" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="0">
+<![CDATA[
+thread-pre-split._crit_edge2:0 %ret_ln56 = ret
+
+]]></Node>
+<StgValue><ssdm name="ret_ln56"/></StgValue>
+</operation>
+</state>
+</state_list>
+
+
+<ports>
+</ports>
+
+
+<dataflows>
+</dataflows>
+
+
+</stg>
