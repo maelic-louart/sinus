@@ -1,0 +1,109 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Fri Jan 28 11:41:25 2022
+# Process ID: 101240
+# Current directory: /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start/sinus_step_start
+# Command line: vivado sinus_step_start.xpr
+# Log file: /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start/sinus_step_start/vivado.log
+# Journal file: /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start/sinus_step_start/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project sinus_step_start.xpr
+INFO: [Project 1-313] Project file moved from '/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start' since last save.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start/sinus_step_start'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2020.2/data/ip'.
+INFO: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+update_compile_order -fileset sources_1
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start/sinus_step_start/sinus_step_start.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File '/tools/Xilinx/Vivado/2020.2/data/xsim/xsim.ini' copied to run dir:'/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start/sinus_step_start/sinus_step_start.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'design_1_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start/sinus_step_start/sinus_step_start.sim/sim_1/behav/xsim'
+xvhdl --incr --relax -prj design_1_tb_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start/sinus_step_start/sinus_step_start.gen/sources_1/bd/design_1/ipshared/8bfc/hdl/vhdl/sinus_regslice_both.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'sinus_regslice_both'
+INFO: [VRFC 10-3107] analyzing entity 'sinus_regslice_both_w1'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start/sinus_step_start/sinus_step_start.gen/sources_1/bd/design_1/ipshared/8bfc/hdl/vhdl/sinus_sin_table.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'sinus_sin_table_rom'
+INFO: [VRFC 10-3107] analyzing entity 'sinus_sin_table'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start/sinus_step_start/sinus_step_start.gen/sources_1/bd/design_1/ipshared/8bfc/hdl/vhdl/sinus.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'sinus'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start/sinus_step_start/sinus_step_start.ip_user_files/bd/design_1/ip/design_1_sinus_0_1/sim/design_1_sinus_0_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'design_1_sinus_0_1'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start/sinus_step_start/sinus_step_start.ip_user_files/bd/design_1/sim/design_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'design_1'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start/sinus_step_start/sinus_step_start.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'design_1_wrapper'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start/sinus_step_start/sinus_step_start.srcs/sim_1/new/design_1_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'design_1_tb'
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start/sinus_step_start/sinus_step_start.sim/sim_1/behav/xsim'
+xelab -wto ac84847c4f51486095338b9ee11130ab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip -L xpm --snapshot design_1_tb_behav xil_defaultlib.design_1_tb -log elaborate.log
+Vivado Simulator 2020.2
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: /tools/Xilinx/Vivado/2020.2/bin/unwrapped/lnx64.o/xelab -wto ac84847c4f51486095338b9ee11130ab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip -L xpm --snapshot design_1_tb_behav xil_defaultlib.design_1_tb -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package unisim.vcomponents
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_unsigned
+Compiling architecture rtl of entity xil_defaultlib.sinus_sin_table_rom [sinus_sin_table_rom_default]
+Compiling architecture arch of entity xil_defaultlib.sinus_sin_table [sinus_sin_table_default]
+Compiling architecture behav of entity xil_defaultlib.sinus_regslice_both [sinus_regslice_both_default]
+Compiling architecture behav of entity xil_defaultlib.sinus [sinus_default]
+Compiling architecture design_1_sinus_0_1_arch of entity xil_defaultlib.design_1_sinus_0_1 [design_1_sinus_0_1_default]
+Compiling architecture structure of entity xil_defaultlib.design_1 [design_1_default]
+Compiling architecture structure of entity xil_defaultlib.design_1_wrapper [design_1_wrapper_default]
+Compiling architecture behavioral of entity xil_defaultlib.design_1_tb
+Built simulation snapshot design_1_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start/sinus_step_start/sinus_step_start.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "design_1_tb_behav -key {Behavioral:sim_1:Functional:design_1_tb} -tclbatch {design_1_tb.tcl} -protoinst "protoinst_files/design_1.protoinst" -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2020.2
+INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/design_1.protoinst
+INFO: [Wavedata 42-564]   Found protocol instance at /design_1_tb/UUT/design_1_i//sinus_0/angle_V
+INFO: [Wavedata 42-564]   Found protocol instance at /design_1_tb/UUT/design_1_i//sinus_0/sinus_1_V
+INFO: [Wavedata 42-564]   Found protocol instance at /design_1_tb/UUT/design_1_i//sinus_0/sinus_2_V
+Time resolution is 1 ps
+source design_1_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'design_1_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:20 ; elapsed = 00:00:11 . Memory (MB): peak = 7558.902 ; gain = 88.945 ; free physical = 2331 ; free virtual = 8001
+run 500 ns
+run 500 ns

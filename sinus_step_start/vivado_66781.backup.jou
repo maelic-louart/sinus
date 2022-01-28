@@ -1,0 +1,166 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Fri Jan 28 09:45:39 2022
+# Process ID: 66781
+# Current directory: /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start
+# Command line: vivado sinus_step_start.xpr
+# Log file: /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/vivado.log
+# Journal file: /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project sinus_step_start.xpr
+update_compile_order -fileset sources_1
+open_bd_design {/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd}
+startgroup
+make_bd_pins_external  [get_bd_pins sinus_0/ap_clk] [get_bd_pins sinus_0/ap_rst_n] [get_bd_pins sinus_0/debug] [get_bd_pins sinus_0/start_r] [get_bd_pins sinus_0/step] [get_bd_pins sinus_0/step_ap_vld]
+make_bd_intf_pins_external  [get_bd_intf_pins sinus_0/angle_V] [get_bd_intf_pins sinus_0/ap_ctrl] [get_bd_intf_pins sinus_0/sinus_1_V] [get_bd_intf_pins sinus_0/sinus_2_V]
+endgroup
+save_bd_design
+make_wrapper -files [get_files /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd] -top
+update_compile_order -fileset sim_1
+generate_target Simulation [get_files /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd]
+export_ip_user_files -of_objects [get_files /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd] -directory /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.ip_user_files/sim_scripts -ip_user_files_dir /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.ip_user_files -ipstatic_source_dir /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.cache/compile_simlib/modelsim} {questa=/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.cache/compile_simlib/questa} {ies=/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.cache/compile_simlib/ies} {xcelium=/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.cache/compile_simlib/xcelium} {vcs=/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.cache/compile_simlib/vcs} {riviera=/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+launch_simulation
+source design_1_tb.tcl
+run 500 ns
+close_sim
+launch_simulation
+source design_1_tb.tcl
+close_sim
+launch_simulation
+source design_1_tb.tcl
+run 500 ns
+close_sim
+launch_simulation
+launch_simulation
+source design_1_tb.tcl
+run 500 ns
+run 500 ns
+run 500 ns
+close_sim
+launch_simulation
+source design_1_tb.tcl
+close_sim
+launch_simulation
+source design_1_tb.tcl
+open_bd_design {/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd}
+update_ip_catalog -delete_ip xilinx.com:hls:sinus:1.0 -repo_path /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start
+update_ip_catalog -add_ip /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_simulator_step_start/sinus_simulator/solution1/impl/ip/xilinx_com_hls_sinus_simulator_1_0.zip -repo_path /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start
+delete_bd_objs [get_bd_intf_nets ap_ctrl_0_1] [get_bd_intf_nets angle_V_0_1] [get_bd_intf_nets sinus_0_sinus_1_V] [get_bd_intf_nets sinus_0_sinus_2_V] [get_bd_nets step_ap_vld_0_1] [get_bd_nets ap_clk_0_1] [get_bd_nets ap_rst_n_0_1] [get_bd_nets start_r_0_1] [get_bd_nets debug_0_1] [get_bd_nets step_0_1] [get_bd_cells sinus_0]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:hls:sinus_simulator:1.0 sinus_simulator_0
+endgroup
+startgroup
+delete_bd_objs [get_bd_intf_ports ap_ctrl_0] [get_bd_intf_ports sinus_1_V_0] [get_bd_intf_ports angle_V_0] [get_bd_intf_ports sinus_2_V_0]
+delete_bd_objs [get_bd_ports debug_0] [get_bd_ports start_r_0] [get_bd_ports step_0] [get_bd_ports step_ap_vld_0] [get_bd_ports ap_rst_n_0] [get_bd_ports ap_clk_0]
+endgroup
+startgroup
+make_bd_pins_external  [get_bd_pins sinus_simulator_0/ap_rst_n] [get_bd_pins sinus_simulator_0/ap_clk]
+make_bd_intf_pins_external  [get_bd_intf_pins sinus_simulator_0/ap_ctrl] [get_bd_intf_pins sinus_simulator_0/constante_fixed_V] [get_bd_intf_pins sinus_simulator_0/start_constante_V] [get_bd_intf_pins sinus_simulator_0/signal_sinus_V] [get_bd_intf_pins sinus_simulator_0/step_sinus_V] [get_bd_intf_pins sinus_simulator_0/step_constante_V] [get_bd_intf_pins sinus_simulator_0/start_sinus_V] [get_bd_intf_pins sinus_simulator_0/sum_V]
+endgroup
+save_bd_design
+open_bd_design {/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd}
+open_bd_design {/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd}
+make_wrapper -files [get_files /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd] -top
+close_sim
+generate_target Simulation [get_files /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd]
+export_ip_user_files -of_objects [get_files /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd] -directory /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.ip_user_files/sim_scripts -ip_user_files_dir /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.ip_user_files -ipstatic_source_dir /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.cache/compile_simlib/modelsim} {questa=/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.cache/compile_simlib/questa} {ies=/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.cache/compile_simlib/ies} {xcelium=/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.cache/compile_simlib/xcelium} {vcs=/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.cache/compile_simlib/vcs} {riviera=/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+launch_simulation
+open_bd_design {/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd}
+delete_bd_objs [get_bd_intf_nets step_constante_V_0_1] [get_bd_intf_nets start_sinus_V_0_1] [get_bd_intf_nets sinus_simulator_0_sum_V] [get_bd_nets ap_clk_0_1] [get_bd_nets ap_rst_n_0_1] [get_bd_intf_nets start_constante_V_0_1] [get_bd_intf_nets step_sinus_V_0_1] [get_bd_intf_nets constante_fixed_V_0_1] [get_bd_intf_nets sinus_simulator_0_signal_sinus_V] [get_bd_intf_nets ap_ctrl_0_1] [get_bd_cells sinus_simulator_0]
+startgroup
+delete_bd_objs [get_bd_intf_ports start_constante_V_0] [get_bd_intf_ports start_sinus_V_0] [get_bd_intf_ports signal_sinus_V_0] [get_bd_intf_ports ap_ctrl_0] [get_bd_intf_ports constante_fixed_V_0] [get_bd_intf_ports step_sinus_V_0] [get_bd_intf_ports step_constante_V_0] [get_bd_intf_ports sum_V_0]
+delete_bd_objs [get_bd_ports ap_rst_n_0] [get_bd_ports ap_clk_0]
+endgroup
+update_ip_catalog -delete_ip xilinx.com:hls:sinus_simulator:1.0 -repo_path /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start
+update_ip_catalog -add_ip /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start/sinus/solution1/impl/ip/xilinx_com_hls_sinus_1_0.zip -repo_path /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start
+open_bd_design {/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd}
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:hls:sinus:1.0 sinus_0
+endgroup
+startgroup
+make_bd_pins_external  [get_bd_pins sinus_0/start_r] [get_bd_pins sinus_0/debug] [get_bd_pins sinus_0/step] [get_bd_pins sinus_0/step_ap_vld] [get_bd_pins sinus_0/ap_clk] [get_bd_pins sinus_0/ap_rst_n]
+make_bd_intf_pins_external  [get_bd_intf_pins sinus_0/ap_ctrl] [get_bd_intf_pins sinus_0/sinus_1_V] [get_bd_intf_pins sinus_0/angle_V] [get_bd_intf_pins sinus_0/sinus_2_V]
+endgroup
+make_wrapper -files [get_files /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd] -top
+generate_target Simulation [get_files /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd]
+export_ip_user_files -of_objects [get_files /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd] -directory /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.ip_user_files/sim_scripts -ip_user_files_dir /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.ip_user_files -ipstatic_source_dir /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.cache/compile_simlib/modelsim} {questa=/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.cache/compile_simlib/questa} {ies=/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.cache/compile_simlib/ies} {xcelium=/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.cache/compile_simlib/xcelium} {vcs=/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.cache/compile_simlib/vcs} {riviera=/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+launch_simulation
+source design_1_tb.tcl
+close_sim
+launch_simulation
+source design_1_tb.tcl
+close_sim
+launch_simulation
+source design_1_tb.tcl
+run 500 ns
+run 500 ns
+update_compile_order -fileset sim_1
+launch_simulation
+source design_1_wrapper.tcl
+update_compile_order -fileset sim_1
+current_sim simulation_9
+close_sim
+launch_simulation
+source design_1_tb.tcl
+close_sim
+launch_simulation
+source design_1_tb.tcl
+run 500 ns
+run 500 ns
+close_sim
+launch_simulation
+source design_1_tb.tcl
+run 500 ns
+run 500 ns
+close_sim
+launch_simulation
+source design_1_tb.tcl
+run 500 ns
+run 500 ns
+open_bd_design {/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd}
+update_ip_catalog -delete_ip xilinx.com:hls:sinus:1.0 -repo_path /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start
+update_ip_catalog -add_ip /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start/sinus/solution1/impl/ip/xilinx_com_hls_sinus_1_0.zip -repo_path /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start
+open_bd_design {/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd}
+delete_bd_objs [get_bd_intf_nets sinus_0_sinus_1_V] [get_bd_nets ap_clk_0_1] [get_bd_nets ap_rst_n_0_1] [get_bd_nets start_r_0_1] [get_bd_intf_nets angle_V_0_1] [get_bd_intf_nets ap_ctrl_0_1] [get_bd_intf_nets sinus_0_sinus_2_V] [get_bd_nets step_ap_vld_0_1] [get_bd_nets debug_0_1] [get_bd_nets step_0_1] [get_bd_cells sinus_0]
+startgroup
+delete_bd_objs [get_bd_intf_ports ap_ctrl_0] [get_bd_intf_ports sinus_1_V_0] [get_bd_intf_ports angle_V_0] [get_bd_intf_ports sinus_2_V_0]
+delete_bd_objs [get_bd_ports debug_0] [get_bd_ports start_r_0] [get_bd_ports step_0] [get_bd_ports step_ap_vld_0] [get_bd_ports ap_rst_n_0] [get_bd_ports ap_clk_0]
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:hls:sinus:1.0 sinus_0
+endgroup
+startgroup
+make_bd_pins_external  [get_bd_pins sinus_0/debug] [get_bd_pins sinus_0/step] [get_bd_pins sinus_0/ap_clk] [get_bd_pins sinus_0/ap_rst_n] [get_bd_pins sinus_0/start_r]
+make_bd_intf_pins_external  [get_bd_intf_pins sinus_0/ap_ctrl] [get_bd_intf_pins sinus_0/sinus_1_V] [get_bd_intf_pins sinus_0/angle_V] [get_bd_intf_pins sinus_0/sinus_2_V]
+endgroup
+make_wrapper -files [get_files /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd] -top
+close_sim
+generate_target Simulation [get_files /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd]
+export_ip_user_files -of_objects [get_files /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd] -directory /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.ip_user_files/sim_scripts -ip_user_files_dir /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.ip_user_files -ipstatic_source_dir /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.cache/compile_simlib/modelsim} {questa=/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.cache/compile_simlib/questa} {ies=/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.cache/compile_simlib/ies} {xcelium=/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.cache/compile_simlib/xcelium} {vcs=/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.cache/compile_simlib/vcs} {riviera=/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+launch_simulation
+source design_1_tb.tcl
+run 500 ns
+run 500 ns
+open_bd_design {/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd}
+make_wrapper -files [get_files /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd] -top
+make_wrapper -files [get_files /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd] -top
+open_bd_design {/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd}
+make_wrapper -files [get_files /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd] -top
+open_bd_design {/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd}
+open_bd_design {/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd}
+export_ip_user_files -of_objects  [get_files /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd] -no_script -reset -force -quiet
+remove_files  /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+open_bd_design {/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd}
+make_wrapper -files [get_files /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd] -top
+add_files -norecurse /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+open_bd_design {/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd}
+open_bd_design {/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd}
+open_bd_design {/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd}
+open_bd_design {/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.srcs/sources_1/bd/design_1/design_1.bd}

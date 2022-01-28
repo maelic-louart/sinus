@@ -1,0 +1,39 @@
+{
+	"version": "1.0",
+	"modules": {
+		"design_1": {
+			"proto_instances": {
+				"/sinus_0/angle_V": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "ap_clk"},
+						"ARESETN": { "actual": "ap_rst_n"},
+						"TDATA": { "actual": "angle_V_TDATA"},
+						"TREADY": { "actual": "angle_V_TREADY"},
+						"TVALID": { "actual": "angle_V_TVALID"}
+					}
+				},
+				"/sinus_0/sinus_1_V": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "ap_clk"},
+						"ARESETN": { "actual": "ap_rst_n"},
+						"TDATA": { "actual": "sinus_1_V_TDATA"},
+						"TREADY": { "actual": "sinus_1_V_TREADY"},
+						"TVALID": { "actual": "sinus_1_V_TVALID"}
+					}
+				},
+				"/sinus_0/sinus_2_V": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "ap_clk"},
+						"ARESETN": { "actual": "ap_rst_n"},
+						"TDATA": { "actual": "sinus_2_V_TDATA"},
+						"TREADY": { "actual": "sinus_2_V_TREADY"},
+						"TVALID": { "actual": "sinus_2_V_TVALID"}
+					}
+				}
+			}
+		}
+	}
+}

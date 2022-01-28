@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Webtalk v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Fri Jan 28 10:02:32 2022
+# Process ID: 70133
+# Current directory: /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.sim/sim_1/behav/xsim
+# Command line: wbtcv -mode batch -source /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.sim/sim_1/behav/xsim/xsim.dir/design_1_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.sim/sim_1/behav/xsim/webtalk.log
+# Journal file: /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.sim/sim_1/behav/xsim/webtalk.jou
+#-----------------------------------------------------------
+source /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vivado/sinus_step_start/sinus_step_start.sim/sim_1/behav/xsim/xsim.dir/design_1_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Fri Jan 28 10:02:32 2022...

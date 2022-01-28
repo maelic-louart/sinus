@@ -1,0 +1,18 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Fri Jan 28 11:41:25 2022
+# Process ID: 101240
+# Current directory: /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start/sinus_step_start
+# Command line: vivado sinus_step_start.xpr
+# Log file: /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start/sinus_step_start/vivado.log
+# Journal file: /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start/sinus_step_start/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project sinus_step_start.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+source design_1_tb.tcl
+run 500 ns
+run 500 ns

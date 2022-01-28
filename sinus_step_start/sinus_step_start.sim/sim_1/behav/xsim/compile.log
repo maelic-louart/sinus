@@ -1,0 +1,16 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start/sinus_step_start/sinus_step_start.gen/sources_1/bd/design_1/ipshared/8bfc/hdl/vhdl/sinus_regslice_both.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'sinus_regslice_both'
+INFO: [VRFC 10-3107] analyzing entity 'sinus_regslice_both_w1'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start/sinus_step_start/sinus_step_start.gen/sources_1/bd/design_1/ipshared/8bfc/hdl/vhdl/sinus_sin_table.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'sinus_sin_table_rom'
+INFO: [VRFC 10-3107] analyzing entity 'sinus_sin_table'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start/sinus_step_start/sinus_step_start.gen/sources_1/bd/design_1/ipshared/8bfc/hdl/vhdl/sinus.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'sinus'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start/sinus_step_start/sinus_step_start.ip_user_files/bd/design_1/ip/design_1_sinus_0_1/sim/design_1_sinus_0_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'design_1_sinus_0_1'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start/sinus_step_start/sinus_step_start.ip_user_files/bd/design_1/sim/design_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'design_1'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start/sinus_step_start/sinus_step_start.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'design_1_wrapper'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start/sinus_step_start/sinus_step_start.srcs/sim_1/new/design_1_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'design_1_tb'

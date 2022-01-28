@@ -1,0 +1,25 @@
+Vivado Simulator 2020.2
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: /tools/Xilinx/Vivado/2020.2/bin/unwrapped/lnx64.o/xelab -wto ac84847c4f51486095338b9ee11130ab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip -L xpm --snapshot design_1_tb_behav xil_defaultlib.design_1_tb -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package unisim.vcomponents
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_unsigned
+Compiling architecture rtl of entity xil_defaultlib.sinus_sin_table_rom [sinus_sin_table_rom_default]
+Compiling architecture arch of entity xil_defaultlib.sinus_sin_table [sinus_sin_table_default]
+Compiling architecture behav of entity xil_defaultlib.sinus_regslice_both [sinus_regslice_both_default]
+Compiling architecture behav of entity xil_defaultlib.sinus [sinus_default]
+Compiling architecture design_1_sinus_0_1_arch of entity xil_defaultlib.design_1_sinus_0_1 [design_1_sinus_0_1_default]
+Compiling architecture structure of entity xil_defaultlib.design_1 [design_1_default]
+Compiling architecture structure of entity xil_defaultlib.design_1_wrapper [design_1_wrapper_default]
+Compiling architecture behavioral of entity xil_defaultlib.design_1_tb
+Built simulation snapshot design_1_tb_behav
