@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# xsim v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Fri Jan 28 10:58:46 2022
+# Process ID: 90284
+# Current directory: /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start/sinus/solution1/sim/vhdl
+# Command line: xsim -mode tcl -source {xsim.dir/sinus/xsim_script.tcl}
+# Log file: /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start/sinus/solution1/sim/vhdl/xsim.log
+# Journal file: /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start/sinus/solution1/sim/vhdl/xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/sinus/xsim_script.tcl
+source sinus.tcl

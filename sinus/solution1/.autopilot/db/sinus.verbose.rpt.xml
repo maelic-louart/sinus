@@ -1,13 +1,13 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'sinus'" level="0">
-<item name = "Date">Wed Jan 26 17:10:43 2022
+<item name = "Date">Fri Jan 28 10:58:17 2022
 </item>
 <item name = "Version">2020.2 (Build 3064766 on Wed Nov 18 09:12:47 MST 2020)</item>
 <item name = "Project">sinus</item>
 <item name = "Solution">solution1 (Vivado IP Flow Target)</item>
-<item name = "Product family">virtexuplus</item>
-<item name = "Target device">xcvu37p-fsvh2892-2L-e</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z020-clg484-1</item>
 </section>
 
 <section name = "Performance Estimates" level="0">
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 2.899 ns, 2.70 ns</column>
+<column name="ap_clk">10.00 ns, 5.825 ns, 2.70 ns</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">1, 1, 10.000 ns, 10.000 ns, 2, 2, none</column>
+<column name="">1, 3, 10.000 ns, 30.000 ns, 2, 4, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -47,15 +47,13 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="6">Name, BRAM_18K, DSP, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
-<column name="Expression">-, -, 0, 98, -</column>
+<column name="Expression">-, -, 0, 279, -</column>
 <column name="FIFO">-, -, -, -, -</column>
 <column name="Instance">-, -, -, -, -</column>
-<column name="Memory">0, -, 8, 17, -</column>
-<column name="Multiplexer">-, -, -, 32, -</column>
-<column name="Register">-, -, 15, -, -</column>
-<specialColumn name="Available SLR">1344, 3008, 869120, 434560, 320</specialColumn>
-<specialColumn name="Utilization SLR (%)">0, 0, ~0, ~0, 0</specialColumn>
-<specialColumn name="Available">4032, 9024, 2607360, 1303680, 960</specialColumn>
+<column name="Memory">0, -, 8, 9, -</column>
+<column name="Multiplexer">-, -, -, 202, -</column>
+<column name="Register">-, -, 42, -, -</column>
+<specialColumn name="Available">280, 220, 106400, 53200, 0</specialColumn>
 <specialColumn name="Utilization (%)">0, 0, ~0, ~0, 0</specialColumn>
 </table>
 </item>
@@ -71,7 +69,7 @@
 </item>
 <item name = "Memory"><table name="" hasTotal="1">
 <keys size="10">Memory, Module, BRAM_18K, FF, LUT, URAM, Words, Bits, Banks, W*Bits*Banks</keys>
-<column name="sin_table_U">sin_table, 0, 8, 17, 0, 65, 8, 1, 520</column>
+<column name="sin_table_U">sin_table, 0, 8, 9, 0, 65, 8, 1, 520</column>
 </table>
 </item>
 <item name = "FIFO"><table name="" hasTotal="1">
@@ -80,36 +78,72 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="add_ln691_fu_231_p2">+, 0, 0, 15, 8, 1</column>
-<column name="idx_fu_147_p2">-, 0, 0, 15, 8, 7</column>
-<column name="sub_ln31_fu_198_p2">-, 0, 0, 15, 1, 8</column>
-<column name="icmp_ln13_fu_137_p2">icmp, 0, 0, 11, 8, 7</column>
-<column name="icmp_ln21_fu_153_p2">icmp, 0, 0, 11, 8, 8</column>
-<column name="ap_block_state2">or, 0, 0, 2, 1, 1</column>
-<column name="ap_predicate_op47_write_state2">or, 0, 0, 2, 1, 1</column>
-<column name="or_ln17_fu_212_p2">or, 0, 0, 2, 1, 1</column>
-<column name="idx_1_fu_159_p3">select, 0, 0, 7, 1, 7</column>
-<column name="select_ln13_fu_172_p3">select, 0, 0, 7, 1, 7</column>
-<column name="signal_tmp_fu_217_p3">select, 0, 0, 9, 1, 9</column>
-<column name="xor_ln17_fu_192_p2">xor, 0, 0, 2, 1, 2</column>
+<column name="grp_fu_293_p2">-, 0, 0, 15, 1, 8</column>
+<column name="idx_1_fu_437_p2">-, 0, 0, 15, 8, 7</column>
+<column name="idx_4_fu_351_p2">-, 0, 0, 15, 8, 7</column>
+<column name="idx_7_fu_423_p2">-, 0, 0, 15, 8, 7</column>
+<column name="idx_fu_365_p2">-, 0, 0, 15, 8, 7</column>
+<column name="sub_ln26_1_fu_329_p2">-, 0, 0, 14, 1, 7</column>
+<column name="sub_ln26_3_fu_387_p2">-, 0, 0, 14, 1, 6</column>
+<column name="sub_ln26_4_fu_401_p2">-, 0, 0, 14, 1, 7</column>
+<column name="sub_ln26_fu_315_p2">-, 0, 0, 14, 1, 6</column>
+<column name="ap_condition_211">and, 0, 0, 2, 1, 1</column>
+<column name="ap_condition_249">and, 0, 0, 2, 1, 1</column>
+<column name="ap_condition_531">and, 0, 0, 2, 1, 1</column>
+<column name="ap_condition_533">and, 0, 0, 2, 1, 1</column>
+<column name="ap_condition_535">and, 0, 0, 2, 1, 1</column>
+<column name="ap_condition_536">and, 0, 0, 2, 1, 1</column>
+<column name="ap_condition_638">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op109_write_state5">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op112_write_state5">and, 0, 0, 2, 1, 1</column>
+<column name="grp_fu_259_p2">and, 0, 0, 2, 1, 1</column>
+<column name="grp_fu_287_p2">and, 0, 0, 2, 1, 1</column>
+<column name="grp_fu_215_p2">icmp, 0, 0, 18, 32, 9</column>
+<column name="grp_fu_221_p2">icmp, 0, 0, 18, 32, 7</column>
+<column name="grp_fu_237_p2">icmp, 0, 0, 16, 26, 1</column>
+<column name="grp_fu_253_p2">icmp, 0, 0, 15, 25, 1</column>
+<column name="grp_fu_275_p2">icmp, 0, 0, 15, 25, 1</column>
+<column name="grp_fu_281_p2">icmp, 0, 0, 18, 32, 8</column>
+<column name="ap_block_state1">or, 0, 0, 2, 1, 1</column>
+<column name="ap_block_state3">or, 0, 0, 2, 1, 1</column>
+<column name="ap_block_state5">or, 0, 0, 2, 1, 1</column>
+<column name="ap_block_state5_io">or, 0, 0, 2, 1, 1</column>
+<column name="ap_condition_219">or, 0, 0, 2, 1, 1</column>
+<column name="ap_condition_257">or, 0, 0, 2, 1, 1</column>
+<column name="select_ln26_1_fu_415_p3">select, 0, 0, 7, 1, 7</column>
+<column name="select_ln26_fu_343_p3">select, 0, 0, 7, 1, 7</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
-<column name="ap_NS_fsm">14, 3, 1, 3</column>
-<column name="signal_1_V_blk_n">9, 2, 1, 2</column>
-<column name="signal_2_V_blk_n">9, 2, 1, 2</column>
+<column name="angle_V_TDATA_blk_n">9, 2, 1, 2</column>
+<column name="ap_NS_fsm">48, 9, 1, 9</column>
+<column name="ap_phi_mux_signal_tmp_1_phi_fu_196_p4">14, 3, 9, 27</column>
+<column name="ap_phi_mux_signal_tmp_phi_fu_165_p4">14, 3, 9, 27</column>
+<column name="idx_2_reg_153">9, 2, 7, 14</column>
+<column name="idx_3_i22_ph_reg_202">14, 3, 7, 21</column>
+<column name="idx_3_i_ph_reg_171">14, 3, 7, 21</column>
+<column name="idx_5_reg_184">9, 2, 7, 14</column>
+<column name="sin_table_address0">25, 5, 7, 35</column>
+<column name="sinus_1_V_TDATA_blk_n">9, 2, 1, 2</column>
+<column name="sinus_1_V_TDATA_int_regslice">14, 3, 32, 96</column>
+<column name="sinus_2_V_TDATA_blk_n">9, 2, 1, 2</column>
+<column name="sinus_2_V_TDATA_int_regslice">14, 3, 32, 96</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
-<column name="ap_CS_fsm">2, 0, 2, 0</column>
-<column name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp">1, 0, 1, 0</column>
-<column name="guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load_reg_250">1, 0, 1, 0</column>
-<column name="icmp_ln13_reg_261">1, 0, 1, 0</column>
-<column name="n">8, 0, 8, 0</column>
-<column name="start_tmp">1, 0, 1, 0</column>
-<column name="start_tmp_load_reg_254">1, 0, 1, 0</column>
+<column name="and_ln17_1_reg_555">1, 0, 1, 0</column>
+<column name="and_ln17_reg_520">1, 0, 1, 0</column>
+<column name="ap_CS_fsm">8, 0, 8, 0</column>
+<column name="icmp_ln13_1_reg_551">1, 0, 1, 0</column>
+<column name="icmp_ln13_reg_516">1, 0, 1, 0</column>
+<column name="icmp_ln9_1_reg_547">1, 0, 1, 0</column>
+<column name="icmp_ln9_reg_512">1, 0, 1, 0</column>
+<column name="idx_2_reg_153">7, 0, 7, 0</column>
+<column name="idx_3_i22_ph_reg_202">7, 0, 7, 0</column>
+<column name="idx_3_i_ph_reg_171">7, 0, 7, 0</column>
+<column name="idx_5_reg_184">7, 0, 7, 0</column>
 </table>
 </item>
 </section>
@@ -120,19 +154,23 @@
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
 <column name="ap_clk">in, 1, ap_ctrl_hs, sinus, return value</column>
-<column name="ap_rst">in, 1, ap_ctrl_hs, sinus, return value</column>
+<column name="ap_rst_n">in, 1, ap_ctrl_hs, sinus, return value</column>
 <column name="ap_start">in, 1, ap_ctrl_hs, sinus, return value</column>
 <column name="ap_done">out, 1, ap_ctrl_hs, sinus, return value</column>
 <column name="ap_idle">out, 1, ap_ctrl_hs, sinus, return value</column>
 <column name="ap_ready">out, 1, ap_ctrl_hs, sinus, return value</column>
 <column name="start_r">in, 1, ap_none, start_r, scalar</column>
+<column name="debug">in, 1, ap_none, debug, scalar</column>
 <column name="step">in, 1, ap_none, step, scalar</column>
-<column name="signal_1_V_din">out, 32, ap_fifo, signal_1_V, pointer</column>
-<column name="signal_1_V_full_n">in, 1, ap_fifo, signal_1_V, pointer</column>
-<column name="signal_1_V_write">out, 1, ap_fifo, signal_1_V, pointer</column>
-<column name="signal_2_V_din">out, 32, ap_fifo, signal_2_V, pointer</column>
-<column name="signal_2_V_full_n">in, 1, ap_fifo, signal_2_V, pointer</column>
-<column name="signal_2_V_write">out, 1, ap_fifo, signal_2_V, pointer</column>
+<column name="angle_V_TDATA">in, 32, axis, angle_V, pointer</column>
+<column name="angle_V_TVALID">in, 1, axis, angle_V, pointer</column>
+<column name="angle_V_TREADY">out, 1, axis, angle_V, pointer</column>
+<column name="sinus_1_V_TDATA">out, 32, axis, sinus_1_V, pointer</column>
+<column name="sinus_1_V_TVALID">out, 1, axis, sinus_1_V, pointer</column>
+<column name="sinus_1_V_TREADY">in, 1, axis, sinus_1_V, pointer</column>
+<column name="sinus_2_V_TDATA">out, 32, axis, sinus_2_V, pointer</column>
+<column name="sinus_2_V_TVALID">out, 1, axis, sinus_2_V, pointer</column>
+<column name="sinus_2_V_TREADY">in, 1, axis, sinus_2_V, pointer</column>
 </table>
 </item>
 </section>

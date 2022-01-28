@@ -1,2 +1,5 @@
 sinus_sin_table
+sinus_regslice_both
+sinus_regslice_both
+sinus_regslice_both
 sinus

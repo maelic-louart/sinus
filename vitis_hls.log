@@ -1,5 +1,5 @@
 INFO: [HLS 200-10] Running '/tools/Xilinx/Vitis_HLS/2020.2/bin/unwrapped/lnx64.o/vitis_hls'
-INFO: [HLS 200-10] For user 'louart' on host 'louart-Latitude-5590' (Linux_x86_64 version 5.4.0-26-generic) on Sun Dec 26 17:11:17 CET 2021
+INFO: [HLS 200-10] For user 'louart' on host 'louart-Latitude-5590' (Linux_x86_64 version 5.4.0-26-generic) on Tue Dec 28 11:00:02 CET 2021
 INFO: [HLS 200-10] On os Linux Mint 20
 INFO: [HLS 200-10] In directory '/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start'
 Sourcing Tcl script '/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start/sinus/solution1/export.tcl'
@@ -10,17 +10,20 @@ INFO: [HLS 200-1510] Running: add_files sinus.cpp
 INFO: [HLS 200-10] Adding design file 'sinus.cpp' to the project
 INFO: [HLS 200-1510] Running: add_files sinus.h 
 INFO: [HLS 200-10] Adding design file 'sinus.h' to the project
-INFO: [HLS 200-1510] Running: add_files -tb sinus_tb.cpp 
+INFO: [HLS 200-1510] Running: add_files -tb sinus_tb.cpp -cflags -Wno-unknown-pragmas -csimflags -Wno-unknown-pragmas 
 INFO: [HLS 200-10] Adding test bench file 'sinus_tb.cpp' to the project
 INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
 INFO: [HLS 200-10] Opening solution '/home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start/sinus/solution1'.
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
-INFO: [HLS 200-10] Setting target device to 'xcvu37p-fsvh2892-2L-e'
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
 INFO: [HLS 200-1505] Using flow_target 'vivado'
 Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2020.2;t=hls+guidance;d=200-1505.html
-INFO: [HLS 200-1510] Running: set_part xcvu37p-fsvh2892-2L-e 
+INFO: [HLS 200-1464] Running solution command: config_export -format=ip_catalog
+INFO: [HLS 200-1464] Running solution command: config_export -rtl=vhdl
+INFO: [HLS 200-1510] Running: set_part xc7z020-clg484-1 
 INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
-INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: config_export -format ip_catalog -rtl vhdl 
+INFO: [HLS 200-1510] Running: set_directive_top -name sinus sinus 
 INFO: [HLS 200-1510] Running: export_design -rtl vhdl -format ip_catalog 
 INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
 
@@ -33,6 +36,6 @@ source run_ippack.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2020.2/data/ip'.
-INFO: [Common 17-206] Exiting Vivado at Sun Dec 26 17:11:36 2021...
+INFO: [Common 17-206] Exiting Vivado at Tue Dec 28 11:00:17 2021...
 INFO: [HLS 200-802] Generated output file sinus/solution1/impl/export.zip
-INFO: [HLS 200-111] Finished Command export_design CPU user time: 17.82 seconds. CPU system time: 1.63 seconds. Elapsed time: 17.7 seconds; current allocated memory: 205.362 MB.
+INFO: [HLS 200-111] Finished Command export_design CPU user time: 16.03 seconds. CPU system time: 1.03 seconds. Elapsed time: 24 seconds; current allocated memory: 189.721 MB.

@@ -8,10 +8,10 @@
   "FunctionProtocol": "ap_ctrl_hs",
   "ResetStyle": "control",
   "Target": {
-    "Family": "virtexuplushbm",
-    "Device": "xcvu37p",
-    "Package": "-fsvh2892",
-    "Speed": "-2L-e",
+    "Family": "zynq",
+    "Device": "xc7z020",
+    "Package": "-clg484",
+    "Speed": "-1",
     "Triple": "fpga64-xilinx-none"
   },
   "Args": {
@@ -28,8 +28,21 @@
           "direction": "in"
         }]
     },
-    "step": {
+    "debug": {
       "index": "1",
+      "direction": "in",
+      "srcType": "bool",
+      "srcSize": "1",
+      "hwRefs": [{
+          "type": "port",
+          "interface": "debug",
+          "name": "debug",
+          "usage": "data",
+          "direction": "in"
+        }]
+    },
+    "step": {
+      "index": "2",
       "direction": "in",
       "srcType": "bool",
       "srcSize": "1",
@@ -41,27 +54,40 @@
           "direction": "in"
         }]
     },
-    "signal_1": {
-      "index": "2",
+    "angle": {
+      "index": "3",
+      "direction": "in",
+      "srcType": "stream<int, 0>&",
+      "srcSize": "32",
+      "hwRefs": [{
+          "type": "interface",
+          "interface": "angle_V",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        }]
+    },
+    "sinus_1": {
+      "index": "4",
       "direction": "out",
       "srcType": "stream<int, 0>&",
       "srcSize": "32",
       "hwRefs": [{
           "type": "interface",
-          "interface": "signal_1_V",
+          "interface": "sinus_1_V",
           "name": "",
           "usage": "data",
           "direction": "out"
         }]
     },
-    "signal_2": {
-      "index": "3",
+    "sinus_2": {
+      "index": "5",
       "direction": "out",
       "srcType": "stream<int, 0>&",
       "srcSize": "32",
       "hwRefs": [{
           "type": "interface",
-          "interface": "signal_2_V",
+          "interface": "sinus_2_V",
           "name": "",
           "usage": "data",
           "direction": "out"
@@ -70,7 +96,14 @@
   },
   "HlsSolution": {
     "FlowTarget": "vivado",
-    "DirectiveTcl": ["set_directive_top sinus -name sinus"],
+    "ConfigTcl": [
+      "config_export -format=ip_catalog",
+      "config_export -rtl=vhdl"
+    ],
+    "DirectiveTcl": [
+      "set_directive_top sinus -name sinus",
+      "set_directive_top sinus -name sinus"
+    ],
     "ProfileOption": "0",
     "ProfileType": "none",
     "KernelName": "sinus"
@@ -99,10 +132,12 @@
   "Files": {
     "CSource": ["..\/..\/sinus.cpp"],
     "Vhdl": [
+      "impl\/vhdl\/sinus_regslice_both.vhd",
       "impl\/vhdl\/sinus_sin_table.vhd",
       "impl\/vhdl\/sinus.vhd"
     ],
     "Verilog": [
+      "impl\/verilog\/sinus_regslice_both.v",
       "impl\/verilog\/sinus_sin_table.v",
       "impl\/verilog\/sinus_sin_table_rom.dat",
       "impl\/verilog\/sinus.v"
@@ -118,11 +153,33 @@
     "Ip": []
   },
   "Interfaces": {
+    "angle_V": {
+      "type": "axi4stream",
+      "busTypeName": "axis",
+      "mode": "slave",
+      "dataWidth": "32",
+      "portPrefix": "angle_V_",
+      "ports": [
+        "angle_V_TDATA",
+        "angle_V_TREADY",
+        "angle_V_TVALID"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "axis",
+          "register_option": "0",
+          "register_mode": "both",
+          "argName": "angle"
+        }]
+    },
     "ap_clk": {
       "type": "clock",
       "busTypeName": "clock",
       "mode": "slave",
-      "busParams": {"ASSOCIATED_RESET": "ap_rst"},
+      "busParams": {
+        "ASSOCIATED_BUSIF": "angle_V:sinus_1_V:sinus_2_V",
+        "ASSOCIATED_RESET": "ap_rst_n"
+      },
       "portMap": {"ap_clk": "CLK"},
       "ports": ["ap_clk"]
     },
@@ -143,58 +200,64 @@
         "ap_start"
       ]
     },
-    "ap_rst": {
+    "ap_rst_n": {
       "type": "reset",
       "busTypeName": "reset",
       "mode": "slave",
-      "busParams": {"POLARITY": "ACTIVE_HIGH"},
-      "portMap": {"ap_rst": "RST"},
-      "ports": ["ap_rst"]
+      "busParams": {"POLARITY": "ACTIVE_LOW"},
+      "portMap": {"ap_rst_n": "RST"},
+      "ports": ["ap_rst_n"]
     },
-    "signal_1_V": {
-      "type": "ap_fifo",
-      "busTypeName": "acc_fifo_write",
-      "mode": "master",
-      "dataWidth": "32",
-      "portPrefix": "signal_1_V_",
-      "portMap": {
-        "signal_1_V_din": "WR_DATA",
-        "signal_1_V_full_n": "FULL_N",
-        "signal_1_V_write": "WR_EN"
-      },
-      "ports": [
-        "signal_1_V_din",
-        "signal_1_V_full_n",
-        "signal_1_V_write"
-      ],
+    "debug": {
+      "type": "data",
+      "busTypeName": "data",
+      "mode": "slave",
+      "dataWidth": "1",
+      "portMap": {"debug": "DATA"},
+      "ports": ["debug"],
       "constraints": [{
           "constraint_type": "pragma interface",
-          "mode": "ap_fifo",
+          "mode": "ap_none",
           "register_option": "0",
-          "argName": "signal_1"
+          "argName": "debug"
         }]
     },
-    "signal_2_V": {
-      "type": "ap_fifo",
-      "busTypeName": "acc_fifo_write",
+    "sinus_1_V": {
+      "type": "axi4stream",
+      "busTypeName": "axis",
       "mode": "master",
       "dataWidth": "32",
-      "portPrefix": "signal_2_V_",
-      "portMap": {
-        "signal_2_V_din": "WR_DATA",
-        "signal_2_V_full_n": "FULL_N",
-        "signal_2_V_write": "WR_EN"
-      },
+      "portPrefix": "sinus_1_V_",
       "ports": [
-        "signal_2_V_din",
-        "signal_2_V_full_n",
-        "signal_2_V_write"
+        "sinus_1_V_TDATA",
+        "sinus_1_V_TREADY",
+        "sinus_1_V_TVALID"
       ],
       "constraints": [{
           "constraint_type": "pragma interface",
-          "mode": "ap_fifo",
+          "mode": "axis",
           "register_option": "0",
-          "argName": "signal_2"
+          "register_mode": "both",
+          "argName": "sinus_1"
+        }]
+    },
+    "sinus_2_V": {
+      "type": "axi4stream",
+      "busTypeName": "axis",
+      "mode": "master",
+      "dataWidth": "32",
+      "portPrefix": "sinus_2_V_",
+      "ports": [
+        "sinus_2_V_TDATA",
+        "sinus_2_V_TREADY",
+        "sinus_2_V_TVALID"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "axis",
+          "register_option": "0",
+          "register_mode": "both",
+          "argName": "sinus_2"
         }]
     },
     "start_r": {
@@ -231,7 +294,7 @@
       "dir": "in",
       "width": "1"
     },
-    "ap_rst": {
+    "ap_rst_n": {
       "dir": "in",
       "width": "1"
     },
@@ -255,32 +318,48 @@
       "dir": "in",
       "width": "1"
     },
+    "debug": {
+      "dir": "in",
+      "width": "1"
+    },
     "step": {
       "dir": "in",
       "width": "1"
     },
-    "signal_1_V_din": {
-      "dir": "out",
+    "angle_V_TDATA": {
+      "dir": "in",
       "width": "32"
     },
-    "signal_1_V_full_n": {
+    "angle_V_TVALID": {
       "dir": "in",
       "width": "1"
     },
-    "signal_1_V_write": {
+    "angle_V_TREADY": {
       "dir": "out",
       "width": "1"
     },
-    "signal_2_V_din": {
+    "sinus_1_V_TDATA": {
       "dir": "out",
       "width": "32"
     },
-    "signal_2_V_full_n": {
+    "sinus_1_V_TVALID": {
+      "dir": "out",
+      "width": "1"
+    },
+    "sinus_1_V_TREADY": {
       "dir": "in",
       "width": "1"
     },
-    "signal_2_V_write": {
+    "sinus_2_V_TDATA": {
       "dir": "out",
+      "width": "32"
+    },
+    "sinus_2_V_TVALID": {
+      "dir": "out",
+      "width": "1"
+    },
+    "sinus_2_V_TREADY": {
+      "dir": "in",
       "width": "1"
     }
   },
@@ -296,40 +375,42 @@
     "Metrics": {"sinus": {
         "Latency": {
           "LatencyBest": "1",
-          "LatencyAvg": "1",
-          "LatencyWorst": "1",
-          "PipelineII": "2",
+          "LatencyAvg": "2",
+          "LatencyWorst": "3",
+          "PipelineIIMin": "2",
+          "PipelineIIMax": "4",
+          "PipelineII": "2 ~ 4",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "2.70",
-          "Estimate": "2.899"
+          "Estimate": "5.825"
         },
         "Area": {
           "BRAM_18K": "0",
-          "AVAIL_BRAM": "4032",
+          "AVAIL_BRAM": "280",
           "UTIL_BRAM": "0",
-          "FF": "23",
-          "AVAIL_FF": "2607360",
+          "FF": "50",
+          "AVAIL_FF": "106400",
           "UTIL_FF": "~0",
-          "LUT": "147",
-          "AVAIL_LUT": "1303680",
+          "LUT": "490",
+          "AVAIL_LUT": "53200",
           "UTIL_LUT": "~0",
           "DSP": "0",
-          "AVAIL_DSP": "9024",
+          "AVAIL_DSP": "220",
           "UTIL_DSP": "0",
           "URAM": "0",
-          "AVAIL_URAM": "960",
+          "AVAIL_URAM": "0",
           "UTIL_URAM": "0"
         }
       }}
   },
-  "GenerateBdFiles": "0",
+  "GenerateBdFiles": "1",
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2022-01-26 17:10:44 CET",
+    "Time": "2022-01-28 10:58:18 CET",
     "ToolName": "vivado_hls",
     "ToolVersion": "2020.2"
   }

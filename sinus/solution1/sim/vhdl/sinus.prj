@@ -1,0 +1,10 @@
+vhdl xil_defaultlib "AESL_sim_pkg.vhd"
+sv work "glbl.v"
+vhdl xil_defaultlib "AESL_axi_s_sinus_2_V.vhd"
+vhdl xil_defaultlib "sinus.autotb.vhd"
+vhdl xil_defaultlib "sinus_regslice_both.vhd"
+vhdl xil_defaultlib "sinus.vhd"
+vhdl xil_defaultlib "AESL_axi_s_angle_V.vhd"
+vhdl xil_defaultlib "sinus_sin_table.vhd"
+vhdl xil_defaultlib "AESL_axi_s_sinus_1_V.vhd"
+

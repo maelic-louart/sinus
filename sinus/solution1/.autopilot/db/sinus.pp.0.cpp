@@ -40609,10 +40609,7 @@ const int sin_table[256/4+1] = {0,3,6,9,12,15,18,21,24,28,31,34,37,40,43,46,48,5
 
 int cos_lookup (int n);
 int sin_lookup (int n);
-__attribute__((sdx_kernel("sinus", 0))) void sinus(bool start,bool step,hls::stream<int> &signal_1,hls::stream<int> &signal_2);
-void addition(hls::stream<int> &signal,hls::stream<int> &constant,hls::stream<int> &sum_1);
-void constante_generator(hls::stream<bool> &start,hls::stream<bool> &step,hls::stream<int> &constante_fixed,hls::stream<int> &constante_out);
-void sinus_simulator(hls::stream<bool> &start_sinus,hls::stream<bool> &start_constante,hls::stream<bool> &step_sinus,hls::stream<bool> &step_constante,hls::stream<int> &constante_fixed,hls::stream<int> &signal_sinus,hls::stream<int> &sum);
+__attribute__((sdx_kernel("sinus", 0))) void sinus(bool start,bool debug,bool step,hls::stream<int> &angle,hls::stream<int> &sinus_1,hls::stream<int> &sinus_2);
 # 2 "sinus.cpp" 2
 
 
@@ -40651,24 +40648,39 @@ int sin_lookup (int n){
  }
 }
 
-__attribute__((sdx_kernel("sinus", 0))) void sinus(bool start,bool step,hls::stream<int> &signal_1,hls::stream<int> &signal_2)
+__attribute__((sdx_kernel("sinus", 0))) void sinus(bool start,bool debug,bool step,hls::stream<int> &angle,hls::stream<int> &sinus_1,hls::stream<int> &sinus_2)
 {
 #pragma HLS TOP name=sinus
 # 40 "sinus.cpp"
 
- static bool start_tmp=start;
+
+#pragma HLS Interface axis port=angle
+#pragma HLS Interface axis port=sinus_1
+#pragma HLS Interface axis port=sinus_2
+
+
+
+ bool start_tmp=start;
  if(start_tmp==1)
  {
   static ap_uint<8> n=0;
 
-  bool step_tmp=step;
-  if(step_tmp==1)
+  if(debug==0)
   {
-   int signal_tmp=sin_lookup(n);
-
-   signal_1<<signal_tmp;
-   signal_2<<signal_tmp;
+   int angle_tmp=angle.read();
+   int signal_tmp=sin_lookup(angle_tmp);
+   sinus_1<<signal_tmp;
+   sinus_2<<signal_tmp;
   }
-  n+=1;
+  else
+  {
+   if(step==1)
+   {
+    int angle_tmp=angle.read();
+    int signal_tmp=sin_lookup(angle_tmp);
+    sinus_1<<signal_tmp;
+    sinus_2<<signal_tmp;
+   }
+  }
  }
 }

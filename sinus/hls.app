@@ -1,4 +1,4 @@
-<project xmlns="com.autoesl.autopilot.project" top="sinus" name="sinus">
+<project xmlns="com.autoesl.autopilot.project" name="sinus" top="sinus">
     <includePaths/>
     <libraryPaths/>
     <Simulation>

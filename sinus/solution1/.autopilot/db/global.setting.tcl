@@ -14,7 +14,7 @@ set NbRWValue 0
 set intNbAccess 0
 set NewDSPMapping 1
 set HasDSPModule 0
-set ResetLevelFlag 1
+set ResetLevelFlag 0
 set ResetStyle control
 set ResetSyncFlag 1
 set ResetRegisterFlag 0
@@ -41,7 +41,7 @@ set ExportMCPathFlag 0
 set SCTraceFileName mytrace
 set SCTraceFileFormat vcd
 set SCTraceOption all
-set TargetInfo xcvu37p:-fsvh2892:-2L-e
+set TargetInfo xc7z020:-clg484:-1
 set SourceFiles {sc {} c ../../sinus.cpp}
 set SourceFlags {sc {} c {{}}}
 set DirectiveFile /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start/sinus/solution1/solution1.directive
@@ -61,5 +61,5 @@ set DefaultPlatform DefaultPlatform
 set multiClockList {}
 set SCPortClockMap {}
 set intNbAccess 0
-set PlatformFiles {{DefaultPlatform {xilinx/virtexuplus/virtexuplus xilinx/virtexuplus/virtexuplus_fpv7}}}
+set PlatformFiles {{DefaultPlatform {xilinx/zynq/zynq xilinx/zynq/zynq_fpv6}}}
 set HPFPO 0

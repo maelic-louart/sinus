@@ -5,7 +5,7 @@ set ID 1
 set hasByteEnable 0
 set MemName sinus_sin_table
 set CoreName ap_simcore_mem
-set PortList { 1 1 }
+set PortList { 1 }
 set DataWd 8
 set AddrRange 65
 set AddrWd 7
@@ -17,7 +17,7 @@ set HasInitializer 1
 set Initializer $ROMData
 set NumOfStage 2
 set MaxLatency -1
-set DelayBudget 0.569
+set DelayBudget 2.322
 set ClkPeriod 10
 set RegisteredInput 0
 if {${::AESL::PGuard_simmodel_gen}} {
@@ -32,7 +32,7 @@ if {[info proc ap_gen_simcore_mem] == "ap_gen_simcore_mem"} {
     sync_rst true \
     stage_num ${NumOfStage}  \
     registered_input ${RegisteredInput} \
-    port_num 2 \
+    port_num 1 \
     port_list \{${PortList}\} \
     data_wd ${DataWd} \
     addr_wd ${AddrWd} \
@@ -68,7 +68,7 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_ROM] == "::AESL_LIB_VIRTEX::xil_gen_RO
     sync_rst true \
     stage_num ${NumOfStage}  \
     registered_input ${RegisteredInput} \
-    port_num 2 \
+    port_num 1 \
     port_list \{${PortList}\} \
     data_wd ${DataWd} \
     addr_wd ${AddrWd} \
@@ -94,6 +94,63 @@ if {${::AESL::PGuard_autoexp_gen}} {
 }
 
 set axilite_register_dict [dict create]
+# Native AXIS:
+if {${::AESL::PGuard_autoexp_gen}} {
+if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
+eval "::AESL_LIB_XILADAPTER::native_axis_add { \
+    id 5 \
+    name angle_V \
+    reset_level 0 \
+    sync_rst true \
+    corename {} \
+    metadata {  } \
+    op interface \
+    ports { angle_V_TDATA { I 32 vector } angle_V_TVALID { I 1 bit } angle_V_TREADY { O 1 bit } } \
+} "
+} else {
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'angle_V'"
+}
+}
+
+
+# Native AXIS:
+if {${::AESL::PGuard_autoexp_gen}} {
+if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
+eval "::AESL_LIB_XILADAPTER::native_axis_add { \
+    id 6 \
+    name sinus_1_V \
+    reset_level 0 \
+    sync_rst true \
+    corename {} \
+    metadata {  } \
+    op interface \
+    ports { sinus_1_V_TDATA { O 32 vector } sinus_1_V_TVALID { O 1 bit } sinus_1_V_TREADY { I 1 bit } } \
+} "
+} else {
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'sinus_1_V'"
+}
+}
+
+
+# Native AXIS:
+if {${::AESL::PGuard_autoexp_gen}} {
+if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
+eval "::AESL_LIB_XILADAPTER::native_axis_add { \
+    id 7 \
+    name sinus_2_V \
+    reset_level 0 \
+    sync_rst true \
+    corename {} \
+    metadata {  } \
+    op interface \
+    ports { sinus_2_V_TDATA { O 32 vector } sinus_2_V_TVALID { O 1 bit } sinus_2_V_TREADY { I 1 bit } } \
+} "
+} else {
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'sinus_2_V'"
+}
+}
+
+
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
@@ -101,7 +158,7 @@ eval "cg_default_interface_gen_dc { \
     name start_r \
     type other \
     dir I \
-    reset_level 1 \
+    reset_level 0 \
     sync_rst true \
     corename dc_start_r \
     op interface \
@@ -113,10 +170,25 @@ eval "cg_default_interface_gen_dc { \
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 3 \
+    name debug \
+    type other \
+    dir I \
+    reset_level 0 \
+    sync_rst true \
+    corename dc_debug \
+    op interface \
+    ports { debug { I 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 4 \
     name step \
     type other \
     dir I \
-    reset_level 1 \
+    reset_level 0 \
     sync_rst true \
     corename dc_step \
     op interface \
@@ -127,40 +199,10 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 4 \
-    name signal_1_V \
-    type fifo \
-    dir O \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_signal_1_V \
-    op interface \
-    ports { signal_1_V_din { O 32 vector } signal_1_V_full_n { I 1 bit } signal_1_V_write { O 1 bit } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 5 \
-    name signal_2_V \
-    type fifo \
-    dir O \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_signal_2_V \
-    op interface \
-    ports { signal_2_V_din { O 32 vector } signal_2_V_full_n { I 1 bit } signal_2_V_write { O 1 bit } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
     id -1 \
     name ap_ctrl \
     type ap_ctrl \
-    reset_level 1 \
+    reset_level 0 \
     sync_rst true \
     corename ap_ctrl \
     op interface \
@@ -177,7 +219,7 @@ if {[info proc cg_default_interface_gen_clock] == "cg_default_interface_gen_cloc
 eval "cg_default_interface_gen_clock { \
     id -2 \
     name ${PortName} \
-    reset_level 1 \
+    reset_level 0 \
     sync_rst true \
     corename apif_ap_clk \
     data_wd ${DataWd} \
@@ -190,16 +232,16 @@ puts "@W \[IMPL-113\] Cannot find bus interface model in the library. Ignored ge
 
 
 # Adapter definition:
-set PortName ap_rst
+set PortName ap_rst_n
 set DataWd 1 
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc cg_default_interface_gen_reset] == "cg_default_interface_gen_reset"} {
 eval "cg_default_interface_gen_reset { \
     id -3 \
     name ${PortName} \
-    reset_level 1 \
+    reset_level 0 \
     sync_rst true \
-    corename apif_ap_rst \
+    corename apif_ap_rst_n \
     data_wd ${DataWd} \
     op interface \
 }"
@@ -215,6 +257,75 @@ if {${::AESL::PGuard_autoexp_gen}} {
     cg_default_interface_gen_dc_end
     cg_default_interface_gen_bundle_end
     AESL_LIB_XILADAPTER::native_axis_end
+}
+
+
+# RegSlice definition:
+set ID 8
+set RegSliceName sinus_regslice_both
+set RegSliceInstName sinus_regslice_both_U
+set CoreName ap_simcore_sinus_regslice_both
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler $RegSliceName
+}
+
+
+if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
+if {[info proc ::AESL_LIB_VIRTEX::xil_gen_regSlice] == "::AESL_LIB_VIRTEX::xil_gen_regSlice"} {
+eval "::AESL_LIB_VIRTEX::xil_gen_regSlice { \
+    name ${RegSliceName} \
+    prefix sinus_ \
+    sliceTypeList 0\
+}"
+} else {
+puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_regSlice, check your platform lib"
+}
+}
+
+
+# RegSlice definition:
+set ID 9
+set RegSliceName sinus_regslice_both
+set RegSliceInstName sinus_regslice_both_U
+set CoreName ap_simcore_sinus_regslice_both
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler $RegSliceName
+}
+
+
+if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
+if {[info proc ::AESL_LIB_VIRTEX::xil_gen_regSlice] == "::AESL_LIB_VIRTEX::xil_gen_regSlice"} {
+eval "::AESL_LIB_VIRTEX::xil_gen_regSlice { \
+    name ${RegSliceName} \
+    prefix sinus_ \
+    sliceTypeList 0\
+}"
+} else {
+puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_regSlice, check your platform lib"
+}
+}
+
+
+# RegSlice definition:
+set ID 10
+set RegSliceName sinus_regslice_both
+set RegSliceInstName sinus_regslice_both_U
+set CoreName ap_simcore_sinus_regslice_both
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler $RegSliceName
+}
+
+
+if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
+if {[info proc ::AESL_LIB_VIRTEX::xil_gen_regSlice] == "::AESL_LIB_VIRTEX::xil_gen_regSlice"} {
+eval "::AESL_LIB_VIRTEX::xil_gen_regSlice { \
+    name ${RegSliceName} \
+    prefix sinus_ \
+    sliceTypeList 0\
+}"
+} else {
+puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_regSlice, check your platform lib"
+}
 }
 
 

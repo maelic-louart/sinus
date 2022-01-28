@@ -7,101 +7,181 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="sinus_sinus,hls_ip_2020_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xcvu37p-fsvh2892-2L-e,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=2.899000,HLS_SYN_LAT=1,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=23,HLS_SYN_LUT=147,HLS_VERSION=2020_2}" *)
+(* CORE_GENERATION_INFO="sinus_sinus,hls_ip_2020_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg484-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=5.825000,HLS_SYN_LAT=2,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=50,HLS_SYN_LUT=490,HLS_VERSION=2020_2}" *)
 
 module sinus (
         ap_clk,
-        ap_rst,
+        ap_rst_n,
         ap_start,
         ap_done,
         ap_idle,
         ap_ready,
         start_r,
+        debug,
         step,
-        signal_1_V_din,
-        signal_1_V_full_n,
-        signal_1_V_write,
-        signal_2_V_din,
-        signal_2_V_full_n,
-        signal_2_V_write
+        angle_V_TDATA,
+        angle_V_TVALID,
+        angle_V_TREADY,
+        sinus_1_V_TDATA,
+        sinus_1_V_TVALID,
+        sinus_1_V_TREADY,
+        sinus_2_V_TDATA,
+        sinus_2_V_TVALID,
+        sinus_2_V_TREADY
 );
 
-parameter    ap_ST_fsm_state1 = 2'd1;
-parameter    ap_ST_fsm_state2 = 2'd2;
+parameter    ap_ST_fsm_state1 = 8'd1;
+parameter    ap_ST_fsm_state2 = 8'd2;
+parameter    ap_ST_fsm_state3 = 8'd4;
+parameter    ap_ST_fsm_state4 = 8'd8;
+parameter    ap_ST_fsm_state5 = 8'd16;
+parameter    ap_ST_fsm_state6 = 8'd32;
+parameter    ap_ST_fsm_state7 = 8'd64;
+parameter    ap_ST_fsm_state8 = 8'd128;
 
 input   ap_clk;
-input   ap_rst;
+input   ap_rst_n;
 input   ap_start;
 output   ap_done;
 output   ap_idle;
 output   ap_ready;
 input   start_r;
+input   debug;
 input   step;
-output  [31:0] signal_1_V_din;
-input   signal_1_V_full_n;
-output   signal_1_V_write;
-output  [31:0] signal_2_V_din;
-input   signal_2_V_full_n;
-output   signal_2_V_write;
+input  [31:0] angle_V_TDATA;
+input   angle_V_TVALID;
+output   angle_V_TREADY;
+output  [31:0] sinus_1_V_TDATA;
+output   sinus_1_V_TVALID;
+input   sinus_1_V_TREADY;
+output  [31:0] sinus_2_V_TDATA;
+output   sinus_2_V_TVALID;
+input   sinus_2_V_TREADY;
 
 reg ap_done;
 reg ap_idle;
 reg ap_ready;
-reg signal_1_V_write;
-reg signal_2_V_write;
 
-(* fsm_encoding = "none" *) reg   [1:0] ap_CS_fsm;
+ reg    ap_rst_n_inv;
+(* fsm_encoding = "none" *) reg   [7:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
-reg   [0:0] guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp;
-reg   [0:0] start_tmp;
-reg   [7:0] n;
-wire   [6:0] sin_table_address0;
+reg   [6:0] sin_table_address0;
 reg    sin_table_ce0;
 wire   [7:0] sin_table_q0;
-wire   [6:0] sin_table_address1;
-reg    sin_table_ce1;
-wire   [7:0] sin_table_q1;
-reg    signal_1_V_blk_n;
+reg    angle_V_TDATA_blk_n;
+wire   [0:0] start_read_read_fu_90_p2;
+wire   [0:0] debug_read_read_fu_84_p2;
+wire   [0:0] step_read_read_fu_78_p2;
+reg    sinus_1_V_TDATA_blk_n;
+wire    ap_CS_fsm_state3;
+wire    ap_CS_fsm_state5;
+wire    ap_CS_fsm_state7;
+reg    sinus_2_V_TDATA_blk_n;
+wire   [6:0] trunc_ln155_1_fu_303_p1;
+wire   [0:0] grp_fu_215_p2;
+reg   [0:0] icmp_ln9_reg_512;
+wire   [0:0] grp_fu_221_p2;
+reg   [0:0] icmp_ln13_reg_516;
+wire   [0:0] grp_fu_259_p2;
+reg   [0:0] and_ln17_reg_520;
+wire   [6:0] idx_4_fu_351_p2;
+wire   [0:0] grp_fu_287_p2;
+wire   [6:0] zext_ln7_fu_357_p1;
+wire   [6:0] idx_fu_365_p2;
+wire   [6:0] trunc_ln155_3_fu_375_p1;
+reg   [0:0] icmp_ln9_1_reg_547;
+reg   [0:0] icmp_ln13_1_reg_551;
+reg   [0:0] and_ln17_1_reg_555;
+wire   [6:0] idx_7_fu_423_p2;
+wire   [6:0] zext_ln7_1_fu_429_p1;
+wire   [6:0] idx_1_fu_437_p2;
 wire    ap_CS_fsm_state2;
-reg   [0:0] guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load_reg_250;
-reg   [0:0] start_tmp_load_reg_254;
-wire   [0:0] step_read_read_fu_54_p2;
-wire   [0:0] start_read_read_fu_60_p2;
-reg    signal_2_V_blk_n;
-wire   [0:0] guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load_load_fu_105_p1;
-wire   [0:0] start_tmp_load_load_fu_121_p1;
-wire   [0:0] icmp_ln13_fu_137_p2;
-reg   [0:0] icmp_ln13_reg_261;
-wire   [63:0] idxprom_i1_fu_167_p1;
-wire   [63:0] idxprom_i4_fu_180_p1;
-wire   [7:0] add_ln691_fu_231_p2;
-reg    ap_predicate_op47_write_state2;
-reg    ap_predicate_op48_write_state2;
-reg    ap_block_state2;
-wire  signed [31:0] sext_ln49_fu_225_p1;
-wire   [5:0] trunc_ln5_1_fu_133_p1;
-wire   [6:0] zext_ln18_fu_143_p1;
-wire   [0:0] icmp_ln21_fu_153_p2;
-wire   [6:0] idx_fu_147_p2;
-wire   [6:0] idx_1_fu_159_p3;
-wire   [6:0] trunc_ln5_fu_129_p1;
-wire   [6:0] select_ln13_fu_172_p3;
-wire   [0:0] tmp_fu_185_p3;
-wire   [7:0] sub_ln31_fu_198_p2;
-wire   [0:0] xor_ln17_fu_192_p2;
-wire   [0:0] or_ln17_fu_212_p2;
-wire   [8:0] zext_ln17_fu_208_p1;
-wire  signed [8:0] sext_ln13_fu_204_p1;
-wire   [8:0] signal_tmp_fu_217_p3;
-reg   [1:0] ap_NS_fsm;
+wire  signed [31:0] sext_ln56_fu_458_p1;
+wire    ap_CS_fsm_state4;
+wire    ap_CS_fsm_state6;
+wire  signed [31:0] sext_ln65_fu_484_p1;
+wire    ap_CS_fsm_state8;
+reg   [6:0] idx_2_reg_153;
+reg    ap_predicate_op27_read_state1;
+reg    ap_predicate_op59_read_state1;
+reg    ap_block_state1;
+wire  signed [8:0] sext_ln29_fu_448_p1;
+reg   [8:0] ap_phi_mux_signal_tmp_phi_fu_165_p4;
+reg    ap_block_state3;
+reg    ap_block_state3_io;
+wire   [8:0] zext_ln29_fu_453_p1;
+reg   [6:0] idx_3_i_ph_reg_171;
+reg   [6:0] idx_5_reg_184;
+wire  signed [8:0] sext_ln29_1_fu_474_p1;
+reg   [8:0] ap_phi_mux_signal_tmp_1_phi_fu_196_p4;
+reg    ap_block_state7;
+reg    ap_block_state7_io;
+wire   [8:0] zext_ln29_1_fu_479_p1;
+reg   [6:0] idx_3_i22_ph_reg_202;
+wire   [63:0] idxprom_i_fu_443_p1;
+wire   [63:0] idxprom_i29_fu_464_p1;
+wire   [63:0] idxprom_i24_fu_469_p1;
+wire   [63:0] idxprom_i2432_fu_490_p1;
+wire   [25:0] grp_fu_227_p4;
+wire   [24:0] grp_fu_243_p4;
+wire   [0:0] grp_fu_237_p2;
+wire   [0:0] grp_fu_253_p2;
+wire   [24:0] grp_fu_265_p4;
+wire   [0:0] grp_fu_275_p2;
+wire   [0:0] grp_fu_281_p2;
+wire   [5:0] idx_3_fu_299_p1;
+wire   [5:0] sub_ln26_fu_315_p2;
+wire   [6:0] p_and_t_cast_fu_321_p3;
+wire   [0:0] tmp_8_fu_307_p3;
+wire   [6:0] sub_ln26_1_fu_329_p2;
+wire   [6:0] tmp_3_fu_335_p3;
+wire   [6:0] select_ln26_fu_343_p3;
+wire   [6:0] zext_ln18_fu_361_p1;
+wire   [5:0] idx_6_fu_371_p1;
+wire   [5:0] sub_ln26_3_fu_387_p2;
+wire   [6:0] p_and_t3_cast_fu_393_p3;
+wire   [0:0] tmp_9_fu_379_p3;
+wire   [6:0] sub_ln26_4_fu_401_p2;
+wire   [6:0] tmp_7_fu_407_p3;
+wire   [6:0] select_ln26_1_fu_415_p3;
+wire   [6:0] zext_ln18_1_fu_433_p1;
+wire   [7:0] grp_fu_293_p2;
+reg    ap_predicate_op109_write_state5;
+reg    ap_predicate_op110_write_state5;
+reg    ap_predicate_op112_write_state5;
+reg    ap_predicate_op113_write_state5;
+wire    regslice_both_sinus_1_V_U_apdone_blk;
+wire    regslice_both_sinus_2_V_U_apdone_blk;
+reg    ap_block_state5;
+reg    ap_block_state5_io;
+reg   [7:0] ap_NS_fsm;
+wire    regslice_both_angle_V_U_apdone_blk;
+wire   [31:0] angle_V_TDATA_int_regslice;
+wire    angle_V_TVALID_int_regslice;
+reg    angle_V_TREADY_int_regslice;
+wire    regslice_both_angle_V_U_ack_in;
+reg   [31:0] sinus_1_V_TDATA_int_regslice;
+reg    sinus_1_V_TVALID_int_regslice;
+wire    sinus_1_V_TREADY_int_regslice;
+wire    regslice_both_sinus_1_V_U_vld_out;
+reg   [31:0] sinus_2_V_TDATA_int_regslice;
+reg    sinus_2_V_TVALID_int_regslice;
+wire    sinus_2_V_TREADY_int_regslice;
+wire    regslice_both_sinus_2_V_U_vld_out;
+reg    ap_condition_249;
+reg    ap_condition_257;
+reg    ap_condition_211;
+reg    ap_condition_219;
+reg    ap_condition_531;
+reg    ap_condition_638;
+reg    ap_condition_535;
+reg    ap_condition_536;
+reg    ap_condition_533;
 wire    ap_ce_reg;
 
 // power-on initialization
 initial begin
-#0 ap_CS_fsm = 2'd1;
-#0 guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp = 1'd0;
-#0 start_tmp = 1'd0;
-#0 n = 8'd0;
+#0 ap_CS_fsm = 8'd1;
 end
 
 sinus_sin_table #(
@@ -110,17 +190,56 @@ sinus_sin_table #(
     .AddressWidth( 7 ))
 sin_table_U(
     .clk(ap_clk),
-    .reset(ap_rst),
+    .reset(ap_rst_n_inv),
     .address0(sin_table_address0),
     .ce0(sin_table_ce0),
-    .q0(sin_table_q0),
-    .address1(sin_table_address1),
-    .ce1(sin_table_ce1),
-    .q1(sin_table_q1)
+    .q0(sin_table_q0)
+);
+
+sinus_regslice_both #(
+    .DataWidth( 32 ))
+regslice_both_angle_V_U(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst_n_inv),
+    .data_in(angle_V_TDATA),
+    .vld_in(angle_V_TVALID),
+    .ack_in(regslice_both_angle_V_U_ack_in),
+    .data_out(angle_V_TDATA_int_regslice),
+    .vld_out(angle_V_TVALID_int_regslice),
+    .ack_out(angle_V_TREADY_int_regslice),
+    .apdone_blk(regslice_both_angle_V_U_apdone_blk)
+);
+
+sinus_regslice_both #(
+    .DataWidth( 32 ))
+regslice_both_sinus_1_V_U(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst_n_inv),
+    .data_in(sinus_1_V_TDATA_int_regslice),
+    .vld_in(sinus_1_V_TVALID_int_regslice),
+    .ack_in(sinus_1_V_TREADY_int_regslice),
+    .data_out(sinus_1_V_TDATA),
+    .vld_out(regslice_both_sinus_1_V_U_vld_out),
+    .ack_out(sinus_1_V_TREADY),
+    .apdone_blk(regslice_both_sinus_1_V_U_apdone_blk)
+);
+
+sinus_regslice_both #(
+    .DataWidth( 32 ))
+regslice_both_sinus_2_V_U(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst_n_inv),
+    .data_in(sinus_2_V_TDATA_int_regslice),
+    .vld_in(sinus_2_V_TVALID_int_regslice),
+    .ack_in(sinus_2_V_TREADY_int_regslice),
+    .data_out(sinus_2_V_TDATA),
+    .vld_out(regslice_both_sinus_2_V_U_vld_out),
+    .ack_out(sinus_2_V_TREADY),
+    .apdone_blk(regslice_both_sinus_2_V_U_apdone_blk)
 );
 
 always @ (posedge ap_clk) begin
-    if (ap_rst == 1'b1) begin
+    if (ap_rst_n_inv == 1'b1) begin
         ap_CS_fsm <= ap_ST_fsm_state1;
     end else begin
         ap_CS_fsm <= ap_NS_fsm;
@@ -128,38 +247,103 @@ always @ (posedge ap_clk) begin
 end
 
 always @ (posedge ap_clk) begin
-    if (((ap_start == 1'b1) & (guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load_load_fu_105_p1 == 1'd0) & (1'b1 == ap_CS_fsm_state1))) begin
-        guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp <= 1'd1;
-        start_tmp <= start_r;
+    if ((1'b1 == ap_condition_531)) begin
+        if ((grp_fu_287_p2 == 1'd0)) begin
+            idx_2_reg_153 <= idx_4_fu_351_p2;
+        end else if ((grp_fu_287_p2 == 1'd1)) begin
+            idx_2_reg_153 <= zext_ln7_fu_357_p1;
+        end
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state1)) begin
-        guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load_reg_250 <= guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp;
+    if ((1'b1 == ap_condition_535)) begin
+        if (((grp_fu_221_p2 == 1'd1) & (grp_fu_215_p2 == 1'd0))) begin
+            idx_3_i22_ph_reg_202 <= trunc_ln155_3_fu_375_p1;
+        end else if ((grp_fu_215_p2 == 1'd1)) begin
+            idx_3_i22_ph_reg_202 <= 7'd0;
+        end else if ((1'b1 == ap_condition_638)) begin
+            idx_3_i22_ph_reg_202 <= idx_1_fu_437_p2;
+        end
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_CS_fsm_state1) & (((guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load_load_fu_105_p1 == 1'd0) & (start_read_read_fu_60_p2 == 1'd1) & (step_read_read_fu_54_p2 == 1'd1)) | ((start_tmp_load_load_fu_121_p1 == 1'd1) & (guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load_load_fu_105_p1 == 1'd1) & (step_read_read_fu_54_p2 == 1'd1))))) begin
-        icmp_ln13_reg_261 <= icmp_ln13_fu_137_p2;
+    if ((1'b1 == ap_condition_536)) begin
+        if (((grp_fu_221_p2 == 1'd1) & (grp_fu_215_p2 == 1'd0))) begin
+            idx_3_i_ph_reg_171 <= trunc_ln155_1_fu_303_p1;
+        end else if ((grp_fu_215_p2 == 1'd1)) begin
+            idx_3_i_ph_reg_171 <= 7'd0;
+        end else if ((1'b1 == ap_condition_638)) begin
+            idx_3_i_ph_reg_171 <= idx_fu_365_p2;
+        end
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((~(((signal_1_V_full_n == 1'b0) & (ap_predicate_op47_write_state2 == 1'b1)) | ((signal_2_V_full_n == 1'b0) & (ap_predicate_op48_write_state2 == 1'b1))) & (1'b1 == ap_CS_fsm_state2) & (((start_read_read_fu_60_p2 == 1'd1) & (guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load_reg_250 == 1'd0)) | ((start_tmp_load_reg_254 == 1'd1) & (guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load_reg_250 == 1'd1))))) begin
-        n <= add_ln691_fu_231_p2;
+    if ((1'b1 == ap_condition_533)) begin
+        if ((grp_fu_287_p2 == 1'd0)) begin
+            idx_5_reg_184 <= idx_7_fu_423_p2;
+        end else if ((grp_fu_287_p2 == 1'd1)) begin
+            idx_5_reg_184 <= zext_ln7_1_fu_429_p1;
+        end
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load_load_fu_105_p1 == 1'd1) & (1'b1 == ap_CS_fsm_state1))) begin
-        start_tmp_load_reg_254 <= start_tmp;
+    if (((grp_fu_221_p2 == 1'd0) & (grp_fu_215_p2 == 1'd0) & (step_read_read_fu_78_p2 == 1'd1) & (debug_read_read_fu_84_p2 == 1'd1) & (start_read_read_fu_90_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state1))) begin
+        and_ln17_1_reg_555 <= grp_fu_259_p2;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((grp_fu_221_p2 == 1'd0) & (grp_fu_215_p2 == 1'd0) & (debug_read_read_fu_84_p2 == 1'd0) & (start_read_read_fu_90_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state1))) begin
+        and_ln17_reg_520 <= grp_fu_259_p2;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((grp_fu_215_p2 == 1'd0) & (step_read_read_fu_78_p2 == 1'd1) & (debug_read_read_fu_84_p2 == 1'd1) & (start_read_read_fu_90_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state1))) begin
+        icmp_ln13_1_reg_551 <= grp_fu_221_p2;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((grp_fu_215_p2 == 1'd0) & (debug_read_read_fu_84_p2 == 1'd0) & (start_read_read_fu_90_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state1))) begin
+        icmp_ln13_reg_516 <= grp_fu_221_p2;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((step_read_read_fu_78_p2 == 1'd1) & (debug_read_read_fu_84_p2 == 1'd1) & (start_read_read_fu_90_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state1))) begin
+        icmp_ln9_1_reg_547 <= grp_fu_215_p2;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((debug_read_read_fu_84_p2 == 1'd0) & (start_read_read_fu_90_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state1))) begin
+        icmp_ln9_reg_512 <= grp_fu_215_p2;
     end
 end
 
 always @ (*) begin
-    if ((~(((signal_1_V_full_n == 1'b0) & (ap_predicate_op47_write_state2 == 1'b1)) | ((signal_2_V_full_n == 1'b0) & (ap_predicate_op48_write_state2 == 1'b1))) & (1'b1 == ap_CS_fsm_state2))) begin
+    if ((((step_read_read_fu_78_p2 == 1'd1) & (debug_read_read_fu_84_p2 == 1'd1) & (start_read_read_fu_90_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1)) | ((debug_read_read_fu_84_p2 == 1'd0) & (start_read_read_fu_90_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1)))) begin
+        angle_V_TDATA_blk_n = angle_V_TVALID_int_regslice;
+    end else begin
+        angle_V_TDATA_blk_n = 1'b1;
+    end
+end
+
+always @ (*) begin
+    if (((~((ap_start == 1'b0) | ((1'b0 == angle_V_TVALID_int_regslice) & (ap_predicate_op59_read_state1 == 1'b1)) | ((1'b0 == angle_V_TVALID_int_regslice) & (ap_predicate_op27_read_state1 == 1'b1))) & (1'b1 == ap_CS_fsm_state1) & (ap_predicate_op59_read_state1 == 1'b1)) | (~((ap_start == 1'b0) | ((1'b0 == angle_V_TVALID_int_regslice) & (ap_predicate_op59_read_state1 == 1'b1)) | ((1'b0 == angle_V_TVALID_int_regslice) & (ap_predicate_op27_read_state1 == 1'b1))) & (1'b1 == ap_CS_fsm_state1) & (ap_predicate_op27_read_state1 == 1'b1)))) begin
+        angle_V_TREADY_int_regslice = 1'b1;
+    end else begin
+        angle_V_TREADY_int_regslice = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if ((~((regslice_both_sinus_2_V_U_apdone_blk == 1'b1) | (regslice_both_sinus_1_V_U_apdone_blk == 1'b1) | (1'b1 == ap_block_state5_io) | ((sinus_2_V_TREADY_int_regslice == 1'b0) & (ap_predicate_op113_write_state5 == 1'b1)) | ((sinus_2_V_TREADY_int_regslice == 1'b0) & (ap_predicate_op110_write_state5 == 1'b1)) | ((sinus_1_V_TREADY_int_regslice == 1'b0) & (ap_predicate_op112_write_state5 == 1'b1)) | ((sinus_1_V_TREADY_int_regslice == 1'b0) & (ap_predicate_op109_write_state5 == 1'b1))) & (1'b1 == ap_CS_fsm_state5))) begin
         ap_done = 1'b1;
     end else begin
         ap_done = 1'b0;
@@ -167,7 +351,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((ap_start == 1'b0) & (1'b1 == ap_CS_fsm_state1))) begin
+    if (((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b0))) begin
         ap_idle = 1'b1;
     end else begin
         ap_idle = 1'b0;
@@ -175,7 +359,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~(((signal_1_V_full_n == 1'b0) & (ap_predicate_op47_write_state2 == 1'b1)) | ((signal_2_V_full_n == 1'b0) & (ap_predicate_op48_write_state2 == 1'b1))) & (1'b1 == ap_CS_fsm_state2))) begin
+    if ((1'b1 == ap_CS_fsm_state7)) begin
+        if ((1'b1 == ap_condition_257)) begin
+            ap_phi_mux_signal_tmp_1_phi_fu_196_p4 = zext_ln29_1_fu_479_p1;
+        end else if ((1'b1 == ap_condition_249)) begin
+            ap_phi_mux_signal_tmp_1_phi_fu_196_p4 = sext_ln29_1_fu_474_p1;
+        end else begin
+            ap_phi_mux_signal_tmp_1_phi_fu_196_p4 = 'bx;
+        end
+    end else begin
+        ap_phi_mux_signal_tmp_1_phi_fu_196_p4 = 'bx;
+    end
+end
+
+always @ (*) begin
+    if ((1'b1 == ap_CS_fsm_state3)) begin
+        if ((1'b1 == ap_condition_219)) begin
+            ap_phi_mux_signal_tmp_phi_fu_165_p4 = zext_ln29_fu_453_p1;
+        end else if ((1'b1 == ap_condition_211)) begin
+            ap_phi_mux_signal_tmp_phi_fu_165_p4 = sext_ln29_fu_448_p1;
+        end else begin
+            ap_phi_mux_signal_tmp_phi_fu_165_p4 = 'bx;
+        end
+    end else begin
+        ap_phi_mux_signal_tmp_phi_fu_165_p4 = 'bx;
+    end
+end
+
+always @ (*) begin
+    if ((~((regslice_both_sinus_2_V_U_apdone_blk == 1'b1) | (regslice_both_sinus_1_V_U_apdone_blk == 1'b1) | (1'b1 == ap_block_state5_io) | ((sinus_2_V_TREADY_int_regslice == 1'b0) & (ap_predicate_op113_write_state5 == 1'b1)) | ((sinus_2_V_TREADY_int_regslice == 1'b0) & (ap_predicate_op110_write_state5 == 1'b1)) | ((sinus_1_V_TREADY_int_regslice == 1'b0) & (ap_predicate_op112_write_state5 == 1'b1)) | ((sinus_1_V_TREADY_int_regslice == 1'b0) & (ap_predicate_op109_write_state5 == 1'b1))) & (1'b1 == ap_CS_fsm_state5))) begin
         ap_ready = 1'b1;
     end else begin
         ap_ready = 1'b0;
@@ -183,39 +395,21 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (((start_read_read_fu_60_p2 == 1'd1) & (step_read_read_fu_54_p2 == 1'd1) & (guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load_reg_250 == 1'd0)) | ((step_read_read_fu_54_p2 == 1'd1) & (start_tmp_load_reg_254 == 1'd1) & (guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load_reg_250 == 1'd1))))) begin
-        signal_1_V_blk_n = signal_1_V_full_n;
+    if ((1'b1 == ap_CS_fsm_state8)) begin
+        sin_table_address0 = idxprom_i2432_fu_490_p1;
+    end else if ((1'b1 == ap_CS_fsm_state6)) begin
+        sin_table_address0 = idxprom_i24_fu_469_p1;
+    end else if ((1'b1 == ap_CS_fsm_state4)) begin
+        sin_table_address0 = idxprom_i29_fu_464_p1;
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
+        sin_table_address0 = idxprom_i_fu_443_p1;
     end else begin
-        signal_1_V_blk_n = 1'b1;
+        sin_table_address0 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((~(((signal_1_V_full_n == 1'b0) & (ap_predicate_op47_write_state2 == 1'b1)) | ((signal_2_V_full_n == 1'b0) & (ap_predicate_op48_write_state2 == 1'b1))) & (1'b1 == ap_CS_fsm_state2) & (ap_predicate_op47_write_state2 == 1'b1))) begin
-        signal_1_V_write = 1'b1;
-    end else begin
-        signal_1_V_write = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (((start_read_read_fu_60_p2 == 1'd1) & (step_read_read_fu_54_p2 == 1'd1) & (guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load_reg_250 == 1'd0)) | ((step_read_read_fu_54_p2 == 1'd1) & (start_tmp_load_reg_254 == 1'd1) & (guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load_reg_250 == 1'd1))))) begin
-        signal_2_V_blk_n = signal_2_V_full_n;
-    end else begin
-        signal_2_V_blk_n = 1'b1;
-    end
-end
-
-always @ (*) begin
-    if ((~(((signal_1_V_full_n == 1'b0) & (ap_predicate_op47_write_state2 == 1'b1)) | ((signal_2_V_full_n == 1'b0) & (ap_predicate_op48_write_state2 == 1'b1))) & (1'b1 == ap_CS_fsm_state2) & (ap_predicate_op48_write_state2 == 1'b1))) begin
-        signal_2_V_write = 1'b1;
-    end else begin
-        signal_2_V_write = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
+    if (((1'b1 == ap_CS_fsm_state8) | (1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state2))) begin
         sin_table_ce0 = 1'b1;
     end else begin
         sin_table_ce0 = 1'b0;
@@ -223,28 +417,114 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
-        sin_table_ce1 = 1'b1;
+    if (((1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state3) | ((step_read_read_fu_78_p2 == 1'd1) & (debug_read_read_fu_84_p2 == 1'd1) & (start_read_read_fu_90_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state5)) | ((debug_read_read_fu_84_p2 == 1'd0) & (start_read_read_fu_90_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state5)))) begin
+        sinus_1_V_TDATA_blk_n = sinus_1_V_TREADY_int_regslice;
     end else begin
-        sin_table_ce1 = 1'b0;
+        sinus_1_V_TDATA_blk_n = 1'b1;
+    end
+end
+
+always @ (*) begin
+    if (~((sinus_2_V_TREADY_int_regslice == 1'b0) | (sinus_1_V_TREADY_int_regslice == 1'b0))) begin
+        if ((1'b1 == ap_CS_fsm_state7)) begin
+            sinus_1_V_TDATA_int_regslice = sext_ln65_fu_484_p1;
+        end else if ((1'b1 == ap_CS_fsm_state3)) begin
+            sinus_1_V_TDATA_int_regslice = sext_ln56_fu_458_p1;
+        end else begin
+            sinus_1_V_TDATA_int_regslice = 'bx;
+        end
+    end else begin
+        sinus_1_V_TDATA_int_regslice = 'bx;
+    end
+end
+
+always @ (*) begin
+    if (((~((sinus_2_V_TREADY_int_regslice == 1'b0) | (sinus_1_V_TREADY_int_regslice == 1'b0) | (1'b1 == ap_block_state7_io)) & (1'b1 == ap_CS_fsm_state7)) | (~((sinus_2_V_TREADY_int_regslice == 1'b0) | (sinus_1_V_TREADY_int_regslice == 1'b0) | (1'b1 == ap_block_state3_io)) & (1'b1 == ap_CS_fsm_state3)))) begin
+        sinus_1_V_TVALID_int_regslice = 1'b1;
+    end else begin
+        sinus_1_V_TVALID_int_regslice = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state3) | ((step_read_read_fu_78_p2 == 1'd1) & (debug_read_read_fu_84_p2 == 1'd1) & (start_read_read_fu_90_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state5)) | ((debug_read_read_fu_84_p2 == 1'd0) & (start_read_read_fu_90_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state5)))) begin
+        sinus_2_V_TDATA_blk_n = sinus_2_V_TREADY_int_regslice;
+    end else begin
+        sinus_2_V_TDATA_blk_n = 1'b1;
+    end
+end
+
+always @ (*) begin
+    if (~((sinus_2_V_TREADY_int_regslice == 1'b0) | (sinus_1_V_TREADY_int_regslice == 1'b0))) begin
+        if ((1'b1 == ap_CS_fsm_state7)) begin
+            sinus_2_V_TDATA_int_regslice = sext_ln65_fu_484_p1;
+        end else if ((1'b1 == ap_CS_fsm_state3)) begin
+            sinus_2_V_TDATA_int_regslice = sext_ln56_fu_458_p1;
+        end else begin
+            sinus_2_V_TDATA_int_regslice = 'bx;
+        end
+    end else begin
+        sinus_2_V_TDATA_int_regslice = 'bx;
+    end
+end
+
+always @ (*) begin
+    if (((~((sinus_2_V_TREADY_int_regslice == 1'b0) | (sinus_1_V_TREADY_int_regslice == 1'b0) | (1'b1 == ap_block_state7_io)) & (1'b1 == ap_CS_fsm_state7)) | (~((sinus_2_V_TREADY_int_regslice == 1'b0) | (sinus_1_V_TREADY_int_regslice == 1'b0) | (1'b1 == ap_block_state3_io)) & (1'b1 == ap_CS_fsm_state3)))) begin
+        sinus_2_V_TVALID_int_regslice = 1'b1;
+    end else begin
+        sinus_2_V_TVALID_int_regslice = 1'b0;
     end
 end
 
 always @ (*) begin
     case (ap_CS_fsm)
         ap_ST_fsm_state1 : begin
-            if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
+            if ((~((ap_start == 1'b0) | ((1'b0 == angle_V_TVALID_int_regslice) & (ap_predicate_op59_read_state1 == 1'b1)) | ((1'b0 == angle_V_TVALID_int_regslice) & (ap_predicate_op27_read_state1 == 1'b1))) & (grp_fu_221_p2 == 1'd0) & (grp_fu_215_p2 == 1'd0) & (step_read_read_fu_78_p2 == 1'd1) & (debug_read_read_fu_84_p2 == 1'd1) & (start_read_read_fu_90_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state1) & (grp_fu_259_p2 == 1'd0))) begin
+                ap_NS_fsm = ap_ST_fsm_state6;
+            end else if ((~((ap_start == 1'b0) | ((1'b0 == angle_V_TVALID_int_regslice) & (ap_predicate_op59_read_state1 == 1'b1)) | ((1'b0 == angle_V_TVALID_int_regslice) & (ap_predicate_op27_read_state1 == 1'b1))) & (1'b1 == ap_CS_fsm_state1) & ((((step_read_read_fu_78_p2 == 1'd1) & (debug_read_read_fu_84_p2 == 1'd1) & (start_read_read_fu_90_p2 == 1'd1) & (grp_fu_259_p2 == 1'd1)) | ((grp_fu_221_p2 == 1'd1) & (step_read_read_fu_78_p2 == 1'd1) & (debug_read_read_fu_84_p2 == 1'd1) & (start_read_read_fu_90_p2 == 1'd1))) | ((grp_fu_215_p2 == 1'd1) & (step_read_read_fu_78_p2 == 1'd1) & (debug_read_read_fu_84_p2 == 1'd1) & (start_read_read_fu_90_p2 == 1'd1))))) begin
+                ap_NS_fsm = ap_ST_fsm_state8;
+            end else if ((~((ap_start == 1'b0) | ((1'b0 == angle_V_TVALID_int_regslice) & (ap_predicate_op59_read_state1 == 1'b1)) | ((1'b0 == angle_V_TVALID_int_regslice) & (ap_predicate_op27_read_state1 == 1'b1))) & (grp_fu_221_p2 == 1'd0) & (grp_fu_215_p2 == 1'd0) & (debug_read_read_fu_84_p2 == 1'd0) & (start_read_read_fu_90_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state1) & (grp_fu_259_p2 == 1'd0))) begin
                 ap_NS_fsm = ap_ST_fsm_state2;
+            end else if ((~((ap_start == 1'b0) | ((1'b0 == angle_V_TVALID_int_regslice) & (ap_predicate_op59_read_state1 == 1'b1)) | ((1'b0 == angle_V_TVALID_int_regslice) & (ap_predicate_op27_read_state1 == 1'b1))) & (1'b1 == ap_CS_fsm_state1) & ((((debug_read_read_fu_84_p2 == 1'd0) & (start_read_read_fu_90_p2 == 1'd1) & (grp_fu_259_p2 == 1'd1)) | ((grp_fu_221_p2 == 1'd1) & (debug_read_read_fu_84_p2 == 1'd0) & (start_read_read_fu_90_p2 == 1'd1))) | ((grp_fu_215_p2 == 1'd1) & (debug_read_read_fu_84_p2 == 1'd0) & (start_read_read_fu_90_p2 == 1'd1))))) begin
+                ap_NS_fsm = ap_ST_fsm_state4;
+            end else if ((~((ap_start == 1'b0) | ((1'b0 == angle_V_TVALID_int_regslice) & (ap_predicate_op59_read_state1 == 1'b1)) | ((1'b0 == angle_V_TVALID_int_regslice) & (ap_predicate_op27_read_state1 == 1'b1))) & (1'b1 == ap_CS_fsm_state1) & ((start_read_read_fu_90_p2 == 1'd0) | ((step_read_read_fu_78_p2 == 1'd0) & (debug_read_read_fu_84_p2 == 1'd1))))) begin
+                ap_NS_fsm = ap_ST_fsm_state5;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state1;
             end
         end
         ap_ST_fsm_state2 : begin
-            if ((~(((signal_1_V_full_n == 1'b0) & (ap_predicate_op47_write_state2 == 1'b1)) | ((signal_2_V_full_n == 1'b0) & (ap_predicate_op48_write_state2 == 1'b1))) & (1'b1 == ap_CS_fsm_state2))) begin
+            ap_NS_fsm = ap_ST_fsm_state3;
+        end
+        ap_ST_fsm_state3 : begin
+            if ((~((sinus_2_V_TREADY_int_regslice == 1'b0) | (sinus_1_V_TREADY_int_regslice == 1'b0) | (1'b1 == ap_block_state3_io)) & (1'b1 == ap_CS_fsm_state3))) begin
+                ap_NS_fsm = ap_ST_fsm_state5;
+            end else begin
+                ap_NS_fsm = ap_ST_fsm_state3;
+            end
+        end
+        ap_ST_fsm_state4 : begin
+            ap_NS_fsm = ap_ST_fsm_state3;
+        end
+        ap_ST_fsm_state5 : begin
+            if ((~((regslice_both_sinus_2_V_U_apdone_blk == 1'b1) | (regslice_both_sinus_1_V_U_apdone_blk == 1'b1) | (1'b1 == ap_block_state5_io) | ((sinus_2_V_TREADY_int_regslice == 1'b0) & (ap_predicate_op113_write_state5 == 1'b1)) | ((sinus_2_V_TREADY_int_regslice == 1'b0) & (ap_predicate_op110_write_state5 == 1'b1)) | ((sinus_1_V_TREADY_int_regslice == 1'b0) & (ap_predicate_op112_write_state5 == 1'b1)) | ((sinus_1_V_TREADY_int_regslice == 1'b0) & (ap_predicate_op109_write_state5 == 1'b1))) & (1'b1 == ap_CS_fsm_state5))) begin
                 ap_NS_fsm = ap_ST_fsm_state1;
             end else begin
-                ap_NS_fsm = ap_ST_fsm_state2;
+                ap_NS_fsm = ap_ST_fsm_state5;
             end
+        end
+        ap_ST_fsm_state6 : begin
+            ap_NS_fsm = ap_ST_fsm_state7;
+        end
+        ap_ST_fsm_state7 : begin
+            if ((~((sinus_2_V_TREADY_int_regslice == 1'b0) | (sinus_1_V_TREADY_int_regslice == 1'b0) | (1'b1 == ap_block_state7_io)) & (1'b1 == ap_CS_fsm_state7))) begin
+                ap_NS_fsm = ap_ST_fsm_state5;
+            end else begin
+                ap_NS_fsm = ap_ST_fsm_state7;
+            end
+        end
+        ap_ST_fsm_state8 : begin
+            ap_NS_fsm = ap_ST_fsm_state7;
         end
         default : begin
             ap_NS_fsm = 'bx;
@@ -252,74 +532,216 @@ always @ (*) begin
     endcase
 end
 
-assign add_ln691_fu_231_p2 = (n + 8'd1);
+assign angle_V_TREADY = regslice_both_angle_V_U_ack_in;
 
 assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
 
 assign ap_CS_fsm_state2 = ap_CS_fsm[32'd1];
 
+assign ap_CS_fsm_state3 = ap_CS_fsm[32'd2];
+
+assign ap_CS_fsm_state4 = ap_CS_fsm[32'd3];
+
+assign ap_CS_fsm_state5 = ap_CS_fsm[32'd4];
+
+assign ap_CS_fsm_state6 = ap_CS_fsm[32'd5];
+
+assign ap_CS_fsm_state7 = ap_CS_fsm[32'd6];
+
+assign ap_CS_fsm_state8 = ap_CS_fsm[32'd7];
+
 always @ (*) begin
-    ap_block_state2 = (((signal_1_V_full_n == 1'b0) & (ap_predicate_op47_write_state2 == 1'b1)) | ((signal_2_V_full_n == 1'b0) & (ap_predicate_op48_write_state2 == 1'b1)));
+    ap_block_state1 = ((ap_start == 1'b0) | ((1'b0 == angle_V_TVALID_int_regslice) & (ap_predicate_op59_read_state1 == 1'b1)) | ((1'b0 == angle_V_TVALID_int_regslice) & (ap_predicate_op27_read_state1 == 1'b1)));
 end
 
 always @ (*) begin
-    ap_predicate_op47_write_state2 = (((start_read_read_fu_60_p2 == 1'd1) & (step_read_read_fu_54_p2 == 1'd1) & (guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load_reg_250 == 1'd0)) | ((step_read_read_fu_54_p2 == 1'd1) & (start_tmp_load_reg_254 == 1'd1) & (guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load_reg_250 == 1'd1)));
+    ap_block_state3 = ((sinus_2_V_TREADY_int_regslice == 1'b0) | (sinus_1_V_TREADY_int_regslice == 1'b0));
 end
 
 always @ (*) begin
-    ap_predicate_op48_write_state2 = (((start_read_read_fu_60_p2 == 1'd1) & (step_read_read_fu_54_p2 == 1'd1) & (guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load_reg_250 == 1'd0)) | ((step_read_read_fu_54_p2 == 1'd1) & (start_tmp_load_reg_254 == 1'd1) & (guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load_reg_250 == 1'd1)));
+    ap_block_state3_io = ((sinus_2_V_TREADY_int_regslice == 1'b0) | (sinus_1_V_TREADY_int_regslice == 1'b0));
 end
 
-assign guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp_load_load_fu_105_p1 = guard_variable_for_sinus_bool_bool_stream_int_0_stream_int_0_start_tmp;
+always @ (*) begin
+    ap_block_state5 = ((regslice_both_sinus_2_V_U_apdone_blk == 1'b1) | (regslice_both_sinus_1_V_U_apdone_blk == 1'b1) | ((sinus_2_V_TREADY_int_regslice == 1'b0) & (ap_predicate_op113_write_state5 == 1'b1)) | ((sinus_2_V_TREADY_int_regslice == 1'b0) & (ap_predicate_op110_write_state5 == 1'b1)) | ((sinus_1_V_TREADY_int_regslice == 1'b0) & (ap_predicate_op112_write_state5 == 1'b1)) | ((sinus_1_V_TREADY_int_regslice == 1'b0) & (ap_predicate_op109_write_state5 == 1'b1)));
+end
 
-assign icmp_ln13_fu_137_p2 = ((n < 8'd65) ? 1'b1 : 1'b0);
+always @ (*) begin
+    ap_block_state5_io = (((sinus_2_V_TREADY_int_regslice == 1'b0) & (ap_predicate_op113_write_state5 == 1'b1)) | ((sinus_2_V_TREADY_int_regslice == 1'b0) & (ap_predicate_op110_write_state5 == 1'b1)) | ((sinus_1_V_TREADY_int_regslice == 1'b0) & (ap_predicate_op112_write_state5 == 1'b1)) | ((sinus_1_V_TREADY_int_regslice == 1'b0) & (ap_predicate_op109_write_state5 == 1'b1)));
+end
 
-assign icmp_ln21_fu_153_p2 = ((n < 8'd192) ? 1'b1 : 1'b0);
+always @ (*) begin
+    ap_block_state7 = ((sinus_2_V_TREADY_int_regslice == 1'b0) | (sinus_1_V_TREADY_int_regslice == 1'b0));
+end
 
-assign idx_1_fu_159_p3 = ((icmp_ln21_fu_153_p2[0:0] == 1'b1) ? zext_ln18_fu_143_p1 : idx_fu_147_p2);
+always @ (*) begin
+    ap_block_state7_io = ((sinus_2_V_TREADY_int_regslice == 1'b0) | (sinus_1_V_TREADY_int_regslice == 1'b0));
+end
 
-assign idx_fu_147_p2 = ($signed(7'd64) - $signed(zext_ln18_fu_143_p1));
+always @ (*) begin
+    ap_condition_211 = ((icmp_ln13_reg_516 == 1'd0) & (icmp_ln9_reg_512 == 1'd0) & (1'd0 == and_ln17_reg_520));
+end
 
-assign idxprom_i1_fu_167_p1 = idx_1_fu_159_p3;
+always @ (*) begin
+    ap_condition_219 = ((icmp_ln9_reg_512 == 1'd1) | ((icmp_ln13_reg_516 == 1'd1) | (1'd1 == and_ln17_reg_520)));
+end
 
-assign idxprom_i4_fu_180_p1 = select_ln13_fu_172_p3;
+always @ (*) begin
+    ap_condition_249 = ((1'd0 == and_ln17_1_reg_555) & (icmp_ln13_1_reg_551 == 1'd0) & (icmp_ln9_1_reg_547 == 1'd0));
+end
 
-assign or_ln17_fu_212_p2 = (xor_ln17_fu_192_p2 | icmp_ln13_reg_261);
+always @ (*) begin
+    ap_condition_257 = ((icmp_ln9_1_reg_547 == 1'd1) | ((1'd1 == and_ln17_1_reg_555) | (icmp_ln13_1_reg_551 == 1'd1)));
+end
 
-assign select_ln13_fu_172_p3 = ((icmp_ln13_fu_137_p2[0:0] == 1'b1) ? trunc_ln5_fu_129_p1 : idx_fu_147_p2);
+always @ (*) begin
+    ap_condition_531 = (~((ap_start == 1'b0) | ((1'b0 == angle_V_TVALID_int_regslice) & (ap_predicate_op59_read_state1 == 1'b1)) | ((1'b0 == angle_V_TVALID_int_regslice) & (ap_predicate_op27_read_state1 == 1'b1))) & (grp_fu_221_p2 == 1'd0) & (grp_fu_215_p2 == 1'd0) & (debug_read_read_fu_84_p2 == 1'd0) & (start_read_read_fu_90_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state1) & (grp_fu_259_p2 == 1'd0));
+end
 
-assign sext_ln13_fu_204_p1 = $signed(sub_ln31_fu_198_p2);
+always @ (*) begin
+    ap_condition_533 = (~((ap_start == 1'b0) | ((1'b0 == angle_V_TVALID_int_regslice) & (ap_predicate_op59_read_state1 == 1'b1)) | ((1'b0 == angle_V_TVALID_int_regslice) & (ap_predicate_op27_read_state1 == 1'b1))) & (grp_fu_221_p2 == 1'd0) & (grp_fu_215_p2 == 1'd0) & (step_read_read_fu_78_p2 == 1'd1) & (debug_read_read_fu_84_p2 == 1'd1) & (start_read_read_fu_90_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state1) & (grp_fu_259_p2 == 1'd0));
+end
 
-assign sext_ln49_fu_225_p1 = $signed(signal_tmp_fu_217_p3);
+always @ (*) begin
+    ap_condition_535 = (~((ap_start == 1'b0) | ((1'b0 == angle_V_TVALID_int_regslice) & (ap_predicate_op59_read_state1 == 1'b1)) | ((1'b0 == angle_V_TVALID_int_regslice) & (ap_predicate_op27_read_state1 == 1'b1))) & (step_read_read_fu_78_p2 == 1'd1) & (debug_read_read_fu_84_p2 == 1'd1) & (start_read_read_fu_90_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state1));
+end
 
-assign signal_1_V_din = sext_ln49_fu_225_p1;
+always @ (*) begin
+    ap_condition_536 = (~((ap_start == 1'b0) | ((1'b0 == angle_V_TVALID_int_regslice) & (ap_predicate_op59_read_state1 == 1'b1)) | ((1'b0 == angle_V_TVALID_int_regslice) & (ap_predicate_op27_read_state1 == 1'b1))) & (debug_read_read_fu_84_p2 == 1'd0) & (start_read_read_fu_90_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state1));
+end
 
-assign signal_2_V_din = sext_ln49_fu_225_p1;
+always @ (*) begin
+    ap_condition_638 = ((grp_fu_221_p2 == 1'd0) & (grp_fu_215_p2 == 1'd0) & (grp_fu_259_p2 == 1'd1));
+end
 
-assign signal_tmp_fu_217_p3 = ((or_ln17_fu_212_p2[0:0] == 1'b1) ? zext_ln17_fu_208_p1 : sext_ln13_fu_204_p1);
+always @ (*) begin
+    ap_predicate_op109_write_state5 = ((debug_read_read_fu_84_p2 == 1'd0) & (start_read_read_fu_90_p2 == 1'd1));
+end
 
-assign sin_table_address0 = idxprom_i4_fu_180_p1;
+always @ (*) begin
+    ap_predicate_op110_write_state5 = ((debug_read_read_fu_84_p2 == 1'd0) & (start_read_read_fu_90_p2 == 1'd1));
+end
 
-assign sin_table_address1 = idxprom_i1_fu_167_p1;
+always @ (*) begin
+    ap_predicate_op112_write_state5 = ((step_read_read_fu_78_p2 == 1'd1) & (debug_read_read_fu_84_p2 == 1'd1) & (start_read_read_fu_90_p2 == 1'd1));
+end
 
-assign start_read_read_fu_60_p2 = start_r;
+always @ (*) begin
+    ap_predicate_op113_write_state5 = ((step_read_read_fu_78_p2 == 1'd1) & (debug_read_read_fu_84_p2 == 1'd1) & (start_read_read_fu_90_p2 == 1'd1));
+end
 
-assign start_tmp_load_load_fu_121_p1 = start_tmp;
+always @ (*) begin
+    ap_predicate_op27_read_state1 = ((debug_read_read_fu_84_p2 == 1'd0) & (start_read_read_fu_90_p2 == 1'd1));
+end
 
-assign step_read_read_fu_54_p2 = step;
+always @ (*) begin
+    ap_predicate_op59_read_state1 = ((step_read_read_fu_78_p2 == 1'd1) & (debug_read_read_fu_84_p2 == 1'd1) & (start_read_read_fu_90_p2 == 1'd1));
+end
 
-assign sub_ln31_fu_198_p2 = (8'd0 - sin_table_q1);
+always @ (*) begin
+    ap_rst_n_inv = ~ap_rst_n;
+end
 
-assign tmp_fu_185_p3 = n[32'd7];
+assign debug_read_read_fu_84_p2 = debug;
 
-assign trunc_ln5_1_fu_133_p1 = n[5:0];
+assign grp_fu_215_p2 = ((angle_V_TDATA_int_regslice == 32'd256) ? 1'b1 : 1'b0);
 
-assign trunc_ln5_fu_129_p1 = n[6:0];
+assign grp_fu_221_p2 = ((angle_V_TDATA_int_regslice < 32'd65) ? 1'b1 : 1'b0);
 
-assign xor_ln17_fu_192_p2 = (tmp_fu_185_p3 ^ 1'd1);
+assign grp_fu_227_p4 = {{angle_V_TDATA_int_regslice[31:6]}};
 
-assign zext_ln17_fu_208_p1 = sin_table_q0;
+assign grp_fu_237_p2 = (($signed(grp_fu_227_p4) > $signed(26'd0)) ? 1'b1 : 1'b0);
 
-assign zext_ln18_fu_143_p1 = trunc_ln5_1_fu_133_p1;
+assign grp_fu_243_p4 = {{angle_V_TDATA_int_regslice[31:7]}};
+
+assign grp_fu_253_p2 = (($signed(grp_fu_243_p4) < $signed(25'd1)) ? 1'b1 : 1'b0);
+
+assign grp_fu_259_p2 = (grp_fu_253_p2 & grp_fu_237_p2);
+
+assign grp_fu_265_p4 = {{angle_V_TDATA_int_regslice[31:7]}};
+
+assign grp_fu_275_p2 = (($signed(grp_fu_265_p4) > $signed(25'd0)) ? 1'b1 : 1'b0);
+
+assign grp_fu_281_p2 = (($signed(angle_V_TDATA_int_regslice) < $signed(32'd192)) ? 1'b1 : 1'b0);
+
+assign grp_fu_287_p2 = (grp_fu_281_p2 & grp_fu_275_p2);
+
+assign grp_fu_293_p2 = (8'd0 - sin_table_q0);
+
+assign idx_1_fu_437_p2 = ($signed(7'd64) - $signed(zext_ln18_1_fu_433_p1));
+
+assign idx_3_fu_299_p1 = angle_V_TDATA_int_regslice[5:0];
+
+assign idx_4_fu_351_p2 = ($signed(7'd64) - $signed(select_ln26_fu_343_p3));
+
+assign idx_6_fu_371_p1 = angle_V_TDATA_int_regslice[5:0];
+
+assign idx_7_fu_423_p2 = ($signed(7'd64) - $signed(select_ln26_1_fu_415_p3));
+
+assign idx_fu_365_p2 = ($signed(7'd64) - $signed(zext_ln18_fu_361_p1));
+
+assign idxprom_i2432_fu_490_p1 = idx_3_i22_ph_reg_202;
+
+assign idxprom_i24_fu_469_p1 = idx_5_reg_184;
+
+assign idxprom_i29_fu_464_p1 = idx_3_i_ph_reg_171;
+
+assign idxprom_i_fu_443_p1 = idx_2_reg_153;
+
+assign p_and_t3_cast_fu_393_p3 = {{1'd0}, {sub_ln26_3_fu_387_p2}};
+
+assign p_and_t_cast_fu_321_p3 = {{1'd0}, {sub_ln26_fu_315_p2}};
+
+assign select_ln26_1_fu_415_p3 = ((tmp_9_fu_379_p3[0:0] == 1'b1) ? sub_ln26_4_fu_401_p2 : tmp_7_fu_407_p3);
+
+assign select_ln26_fu_343_p3 = ((tmp_8_fu_307_p3[0:0] == 1'b1) ? sub_ln26_1_fu_329_p2 : tmp_3_fu_335_p3);
+
+assign sext_ln29_1_fu_474_p1 = $signed(grp_fu_293_p2);
+
+assign sext_ln29_fu_448_p1 = $signed(grp_fu_293_p2);
+
+assign sext_ln56_fu_458_p1 = $signed(ap_phi_mux_signal_tmp_phi_fu_165_p4);
+
+assign sext_ln65_fu_484_p1 = $signed(ap_phi_mux_signal_tmp_1_phi_fu_196_p4);
+
+assign sinus_1_V_TVALID = regslice_both_sinus_1_V_U_vld_out;
+
+assign sinus_2_V_TVALID = regslice_both_sinus_2_V_U_vld_out;
+
+assign start_read_read_fu_90_p2 = start_r;
+
+assign step_read_read_fu_78_p2 = step;
+
+assign sub_ln26_1_fu_329_p2 = (7'd0 - p_and_t_cast_fu_321_p3);
+
+assign sub_ln26_3_fu_387_p2 = (6'd0 - idx_6_fu_371_p1);
+
+assign sub_ln26_4_fu_401_p2 = (7'd0 - p_and_t3_cast_fu_393_p3);
+
+assign sub_ln26_fu_315_p2 = (6'd0 - idx_3_fu_299_p1);
+
+assign tmp_3_fu_335_p3 = {{1'd0}, {idx_3_fu_299_p1}};
+
+assign tmp_7_fu_407_p3 = {{1'd0}, {idx_6_fu_371_p1}};
+
+assign tmp_8_fu_307_p3 = angle_V_TDATA_int_regslice[32'd31];
+
+assign tmp_9_fu_379_p3 = angle_V_TDATA_int_regslice[32'd31];
+
+assign trunc_ln155_1_fu_303_p1 = angle_V_TDATA_int_regslice[6:0];
+
+assign trunc_ln155_3_fu_375_p1 = angle_V_TDATA_int_regslice[6:0];
+
+assign zext_ln18_1_fu_433_p1 = idx_6_fu_371_p1;
+
+assign zext_ln18_fu_361_p1 = idx_3_fu_299_p1;
+
+assign zext_ln29_1_fu_479_p1 = sin_table_q0;
+
+assign zext_ln29_fu_453_p1 = sin_table_q0;
+
+assign zext_ln7_1_fu_429_p1 = idx_6_fu_371_p1;
+
+assign zext_ln7_fu_357_p1 = idx_3_fu_299_p1;
 
 endmodule //sinus

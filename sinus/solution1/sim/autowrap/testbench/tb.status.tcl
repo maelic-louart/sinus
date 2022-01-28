@@ -1,0 +1,1 @@
+set ::AESL_AUTOSIM::gTopFileName /home/louart/Bureau/these/partie_pratique/experience/test_hls/sinus/vitis_hls/sinus_step_start/sinus/solution1/./sim/autowrap/testbench/sinus.cpp_pre.cpp.tb.cpp

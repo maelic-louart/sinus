@@ -6,19 +6,29 @@
           <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
         </hw>
       </arg>
-      <arg id="1" access_type="r" src_name="step" src_type="bool" src_isptr="0" src_bitwidth="1" src_size_or_depth="1">
+      <arg id="1" access_type="r" src_name="debug" src_type="bool" src_isptr="0" src_bitwidth="1" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="debug" hw_bitwidth="1" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="2" access_type="r" src_name="step" src_type="bool" src_isptr="0" src_bitwidth="1" src_size_or_depth="1">
         <hw hw_usage="data" hw_interface="Register" hw_name="step" hw_bitwidth="1" hw_size_or_depth="1">
           <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
         </hw>
       </arg>
-      <arg id="2" access_type="w" src_name="signal_1" src_type="stream&lt;int, 0&gt;&amp;" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
-        <hw hw_usage="data" hw_interface="FIFO" hw_name="signal_1_V" hw_bitwidth="32" hw_size_or_depth="1">
-          <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0"/>
+      <arg id="3" access_type="r" src_name="angle" src_type="stream&lt;int, 0&gt;&amp;" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="AXI-Stream" hw_name="angle_V" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="axis" register_option="0" register_mode="both"/>
         </hw>
       </arg>
-      <arg id="3" access_type="w" src_name="signal_2" src_type="stream&lt;int, 0&gt;&amp;" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
-        <hw hw_usage="data" hw_interface="FIFO" hw_name="signal_2_V" hw_bitwidth="32" hw_size_or_depth="1">
-          <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0"/>
+      <arg id="4" access_type="w" src_name="sinus_1" src_type="stream&lt;int, 0&gt;&amp;" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="AXI-Stream" hw_name="sinus_1_V" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="axis" register_option="0" register_mode="both"/>
+        </hw>
+      </arg>
+      <arg id="5" access_type="w" src_name="sinus_2" src_type="stream&lt;int, 0&gt;&amp;" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="AXI-Stream" hw_name="sinus_2_V" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="axis" register_option="0" register_mode="both"/>
         </hw>
       </arg>
     </args>

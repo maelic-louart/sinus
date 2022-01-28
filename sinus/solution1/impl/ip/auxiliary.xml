@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="sinus" xd:componentRef="sinus" xd:initiationInterval="2" xd:clockPeriod="10.000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="sinus" xd:componentRef="sinus" xd:initiationInterval="4" xd:clockPeriod="10.000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
   <xd:controlReg xd:name="control" xd:interfaceRef="ap_ctrl" xd:busTypeRef="acc_handshake" xd:type="acc_handshake"/>
   <xd:arg xd:name="start" xd:originalName="start" xd:direction="in" xd:interfaceRef="start_r" xd:busTypeRef="register" xd:handshakeRef="ap_none" xd:dataWidth="1"/>
+  <xd:arg xd:name="debug" xd:originalName="debug" xd:direction="in" xd:interfaceRef="debug" xd:busTypeRef="register" xd:handshakeRef="ap_none" xd:dataWidth="1"/>
   <xd:arg xd:name="step" xd:originalName="step" xd:direction="in" xd:interfaceRef="step" xd:busTypeRef="register" xd:handshakeRef="ap_none" xd:dataWidth="1"/>
-  <xd:arg xd:name="signal_1" xd:originalName="signal_1" xd:direction="out" xd:interfaceRef="signal_1_V" xd:busTypeRef="acc_fifo" xd:firstOut="1" xd:dataWidth="1"/>
-  <xd:arg xd:name="signal_2" xd:originalName="signal_2" xd:direction="out" xd:interfaceRef="signal_2_V" xd:busTypeRef="acc_fifo" xd:firstOut="1" xd:dataWidth="1"/>
-  <xd:latencyEstimates xd:best-case="1" xd:worst-case="1" xd:average-case="1"/>
-  <xd:resourceEstimates xd:LUT="147" xd:FF="23" xd:BRAM="0" xd:DSP="0"/>
+  <xd:arg xd:name="angle" xd:originalName="angle" xd:direction="in" xd:interfaceRef="angle_V" xd:busTypeRef="axis" xd:dataWidth="1"/>
+  <xd:arg xd:name="sinus_1" xd:originalName="sinus_1" xd:direction="out" xd:interfaceRef="sinus_1_V" xd:busTypeRef="axis" xd:dataWidth="1"/>
+  <xd:arg xd:name="sinus_2" xd:originalName="sinus_2" xd:direction="out" xd:interfaceRef="sinus_2_V" xd:busTypeRef="axis" xd:dataWidth="1"/>
+  <xd:latencyEstimates xd:best-case="1" xd:worst-case="3" xd:average-case="2"/>
+  <xd:resourceEstimates xd:LUT="490" xd:FF="50" xd:BRAM="0" xd:DSP="0"/>
 </xd:acceleratorMap>

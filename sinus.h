@@ -18,9 +18,6 @@ const int sin_table[DATA_SIZE/4+1] = {0,3,6,9,12,15,18,21,24,28,31,34,37,40,43,4
 
 int cos_lookup (int n);
 int sin_lookup (int n);
-void sinus(bool start,bool step,hls::stream<int> &signal_1,hls::stream<int> &signal_2);
-void addition(hls::stream<int> &signal,hls::stream<int> &constant,hls::stream<int> &sum_1);
-void constante_generator(hls::stream<bool> &start,hls::stream<bool> &step,hls::stream<int> &constante_fixed,hls::stream<int> &constante_out);
-void sinus_simulator(hls::stream<bool> &start_sinus,hls::stream<bool> &start_constante,hls::stream<bool> &step_sinus,hls::stream<bool> &step_constante,hls::stream<int> &constante_fixed,hls::stream<int> &signal_sinus,hls::stream<int> &sum);
+void sinus(bool start,bool debug,bool step,hls::stream<int> &angle,hls::stream<int> &sinus_1,hls::stream<int> &sinus_2);
 
 #endif

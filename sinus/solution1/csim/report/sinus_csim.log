@@ -18,10 +18,7 @@ sinus_1_tmp =18
 sinus_2_tmp =18
 sinus_1_tmp =21
 sinus_2_tmp =21
-sinus_1_tmp =24
-sinus_2_tmp =24
-sinus_1_tmp =28
-sinus_2_tmp =28
-The maximum depth reached by any of the 2 hls::stream() instances in the design is 0
+WARNING: Hls::stream 'angle' contains leftover data, which may result in RTL simulation hanging.
+The maximum depth reached by any of the 3 hls::stream() instances in the design is 8
 INFO: [SIM 1] CSim done with 0 errors.
 INFO: [SIM 3] *************** CSIM finish ***************
